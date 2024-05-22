@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['buscar'])) {
     $email = $_POST['email'];
     $email = $conn->real_escape_string($email);
     
-    $sql = "SELECT * FROM PERSONA WHERE email='$email'";
+    $sql = "SELECT * FROM Persona WHERE email='$email'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['modificar'])) {
     $nuevo_email = $conn->real_escape_string($nuevo_email);
     $nuevo_tipo = $conn->real_escape_string($nuevo_tipo);
 
-    $sql = "UPDATE PERSONA SET email='$nuevo_email', tipo='$nuevo_tipo' WHERE email='$email'";
+    $sql = "UPDATE Persona SET email='$nuevo_email', tipo='$nuevo_tipo' WHERE email='$email'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Datos de usuario modificados con éxito";
