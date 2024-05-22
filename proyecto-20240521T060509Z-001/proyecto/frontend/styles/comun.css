@@ -29,6 +29,12 @@ header .logo img {
     width: auto;
 }
 
+.logo img {
+    transition: transform 0.3s ease; 
+}
+.logo img:hover {
+    transform: scale(1.2); 
+}
 header nav ul {
     list-style: none;
     display: flex;
