@@ -1,3 +1,7 @@
 .clasimage{
     padding-top: 200px;
 }
+
+.clasimage h1 {
+    display: inline-block; 
+}
