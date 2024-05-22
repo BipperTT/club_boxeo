@@ -96,9 +96,6 @@ nav ul li.dropdown {
     display: block;
 }
 
-
-
-
 main {
     padding-top: 10px;
     display: flex;
@@ -115,7 +112,7 @@ footer {
     padding: 20px 0;
     text-align: center;
     position: sticky;
-    margin-top: 300px;
+    margin-top: 150px;
 }
 
 .footer-content {

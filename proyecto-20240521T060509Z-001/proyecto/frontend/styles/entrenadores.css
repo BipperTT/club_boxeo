@@ -1,7 +1,6 @@
-
-
 .entrenadores {
     text-align: center;
+    margin-top: 190px;
 }
 
 .entrenadores h2 {
@@ -56,3 +55,6 @@
     border-radius: 0 0 8px 8px;
 }
 
+footer{
+    margin-top: -700px;
+}
