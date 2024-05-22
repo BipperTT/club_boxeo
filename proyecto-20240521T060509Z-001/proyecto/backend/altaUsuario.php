@@ -5,9 +5,9 @@ include("connexio.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['ID'];
-    $nom = $_POST['nom'];
-    $cognom = $_POST['cognom1'];
-    $telf = $_POST['telf'];
+    $nom = $_POST['nombre'];
+    $cognom = $_POST['apellido1'];
+    $telf = $_POST['telefono'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $tipo = $_POST['tipo'];
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $conn->real_escape_string($password);
     $tipo = $conn->real_escape_string($tipo);
 
-    $sql = "INSERT INTO PERSONA (ID, nom, cognom1, telf, email, contrasenya, tipo) VALUES ('$id', '$nom', '$cognom', '$telf', '$email', '$password', '$tipo')";
+    $sql = "INSERT INTO Persona (ID, nombre, apellido1, telefono, email, contraseña, tipo) VALUES ('$id', '$nom', '$cognom', '$telf', '$email', '$password', '$tipo')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Usuario creado con éxito";
@@ -52,8 +52,8 @@ $conn->close();
                 <li><a href="nutricional.html">Información Nutricional</a></li>
                 <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Iniciar Sesión</a></li>
-                <li><a href="SignUp.html">Crear Cuenta</a></li>
+                <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>
+                <li><a href="registro.html">Crear Cuenta</a></li>
             </ul>
         </nav>
     </header>
@@ -62,20 +62,20 @@ $conn->close();
             <label for="ID">ID:</label>
             <input type="text" name="ID" required>
             <br>
-            <label for="nom">Nombre:</label>
-            <input type="text" name="nom" required>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required>
             <br>
-            <label for="cognom1">Apellido:</label>
-            <input type="text" name="cognom1" required>
+            <label for="apellido1">Apellido:</label>
+            <input type="text" name="apellido1" required>
             <br>
-            <label for="telf">Teléfono:</label>
-            <input type="text" name="telf" required>
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefono" required>
             <br>
             <label for="email">Email:</label>
             <input type="email" name="email" required>
             <br>
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" required>
+            <label for="contraseña">Contraseña:</label>
+            <input type="contraseña" name="contraseña" required>
             <br>
             <label for="tipo">Tipo de Usuario:</label>
             <select name="tipo">

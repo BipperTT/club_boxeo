@@ -5,7 +5,7 @@ session_start();
     $email = $_REQUEST['email'];
     $contrasenya = $_REQUEST['password'];
 
-    $sql = "SELECT * FROM PERSONA WHERE email=$email AND contrasenya=$contrasenya";
+    $sql = "SELECT * FROM PERSONA WHERE email=$email AND contraseña=$contrasenya";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0 ) {
