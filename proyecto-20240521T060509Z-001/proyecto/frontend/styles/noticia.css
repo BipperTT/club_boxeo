@@ -1,0 +1,29 @@
+main {
+    padding: 20px;
+    padding-top: 1100px;
+    padding-bottom: 1000px;
+}
+
+.noticias {
+    text-align: center;
+    margin-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+
+}
+
+.noticia {
+    background-color: #f4f4f4;
+    margin: 20px 0;
+    padding: 20px;
+    width: 50%;
+    border: 1px solid #ccc;
+
+}
+
+.noticia img {
+    max-width: 100%;
+    width: 800px;
+}
