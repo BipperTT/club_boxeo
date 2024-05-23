@@ -36,6 +36,7 @@ header .logo img {
 .logo img:hover {
     transform: scale(1.2); 
 }
+
 header nav ul {
     list-style: none;
     display: flex;
@@ -46,15 +47,39 @@ header nav ul li {
     margin: 0 10px;
 }
 
+
 header nav ul li a {
     color: #fff;
     text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; 
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: #2f4dd3;
+    transition: width 0.3s ease, left 0.3s ease;
 }
 
 header nav ul li a:hover {
     color: #2f4dd3;
-    text-decoration: none;
+    transform: scale(1.2) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
 }
+
+header nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
 
 
 

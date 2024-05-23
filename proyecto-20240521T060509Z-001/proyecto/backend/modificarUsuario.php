@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['buscar'])) {
     $email = $_POST['email'];
     $email = $conn->real_escape_string($email);
     
-    $sql = "SELECT * FROM PERSONA WHERE email='$email'";
+    $sql = "SELECT * FROM Persona WHERE email='$email'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['modificar'])) {
     $nuevo_email = $conn->real_escape_string($nuevo_email);
     $nuevo_tipo = $conn->real_escape_string($nuevo_tipo);
 
-    $sql = "UPDATE PERSONA SET email='$nuevo_email', tipo='$nuevo_tipo' WHERE email='$email'";
+    $sql = "UPDATE Persona SET email='$nuevo_email', tipo='$nuevo_tipo' WHERE email='$email'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Datos de usuario modificados con éxito";
@@ -50,12 +50,23 @@ $conn->close();
         <div class="logo">CLUB BOX SOGACHE</div>
         <nav>
             <ul>
-                <li><a href="paginaPrincipal.html">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="horarios.html">Horarios</a></li>
-                <li><a href="resultados.html">Resultados</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Precios</a>
+                    <div class="dropdown-content">
+                        <a href="tarifa.html">Tarifas</a>
+                        <a href="entrenoPrivado.html">Entreno Privado</a>
+                    </div>
+                </li>
                 <li><a href="entrenadores.html">Entrenadores</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="nutricional.html">Información Nutricional</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Blog</a>
+                    <div class="dropdown-content">
+                        <a href="nutricional.html">Información Nutricional</a>
+                        <a href="noticias.html">Noticias</a>
+                    </div>
+                </li>
                 <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>

@@ -1,77 +1,19 @@
 <?php
-session_start();
-
 include("connexio.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
-    $email = $conn->real_escape_string($email);
-
-    // Obtener el ID del usuario basado en el email
-    $sql = "SELECT ID FROM PERSONA WHERE email='$email'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $fila = $result->fetch_assoc();
-        $id = $fila['ID'];
-
-        // Eliminar registros relacionados en la tabla HORA
-        $sql_get_horarios = "SELECT ID FROM HORARIO WHERE ID_entrenador='$id'";
-        $result_horarios = $conn->query($sql_get_horarios);
-
-        if ($result_horarios->num_rows > 0) {
-            while ($row_horario = $result_horarios->fetch_assoc()) {
-                $id_horario = $row_horario['ID'];
-                $sql_delete_horas = "DELETE FROM HORA WHERE ID_horario='$id_horario'";
-                if (!$conn->query($sql_delete_horas) === TRUE) {
-                    echo "Error al eliminar horas relacionadas: " . $conn->error;
-                    exit;
-                }
-            }
-        }
-
-        // Eliminar registros relacionados en la tabla HORARIO
-        $sql_delete_horarios = "DELETE FROM HORARIO WHERE ID_entrenador='$id'";
-        if ($conn->query($sql_delete_horarios) === TRUE) {
-            // Eliminar registros relacionados en la tabla COMBATE
-            $sql_delete_combates = "DELETE FROM COMBATE WHERE ID_box1='$id' OR ID_box2='$id'";
-            if ($conn->query($sql_delete_combates) === TRUE) {
-                // Eliminar registros relacionados en la tabla GRUPAL
-                $sql_delete_grupales = "DELETE FROM GRUPAL WHERE id_entreno_grupal IN (SELECT ID FROM ENTRENO WHERE ID_Entrenador='$id')";
-                if ($conn->query($sql_delete_grupales) === TRUE) {
-                    // Eliminar registros relacionados en la tabla PRIVADO
-                    $sql_delete_privados = "DELETE FROM PRIVADO WHERE Id_entreno_privado IN (SELECT ID FROM ENTRENO WHERE ID_Entrenador='$id')";
-                    if ($conn->query($sql_delete_privados) === TRUE) {
-                        // Eliminar registros relacionados en la tabla ENTRENO
-                        $sql_delete_entrenos = "DELETE FROM ENTRENO WHERE ID_Entrenador='$id'";
-                        if ($conn->query($sql_delete_entrenos) === TRUE) {
-                            // Ahora eliminar el usuario de la tabla PERSONA
-                            $sql_delete_persona = "DELETE FROM PERSONA WHERE ID='$id'";
-                            if ($conn->query($sql_delete_persona) === TRUE) {
-                                echo "Usuario eliminado con éxito";
-                            } else {
-                                echo "Error al eliminar usuario: " . $conn->error;
-                            }
-                        } else {
-                            echo "Error al eliminar entrenos relacionados: " . $conn->error;
-                        }
-                    } else {
-                        echo "Error al eliminar entrenos privados relacionados: " . $conn->error;
-                    }
-                } else {
-                    echo "Error al eliminar entrenos grupales relacionados: " . $conn->error;
-                }
-            } else {
-                echo "Error al eliminar combates relacionados: " . $conn->error;
-            }
-        } else {
-            echo "Error al eliminar horarios relacionados: " . $conn->error;
-        }
+    
+    $query = "DELETE FROM Persona WHERE email = '$email'";
+    
+    if(mysqli_query($conn, $query)) {
+        echo "Usuario dado de baja correctamente.";
     } else {
-        echo "Usuario no encontrado";
+        echo "Error al dar de baja usuario: " . mysqli_error($conn);
     }
 }
-$conn->close();
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -87,16 +29,27 @@ $conn->close();
         <div class="logo">CLUB BOX SOGACHE</div>
         <nav>
             <ul>
-                <li><a href="paginaPrincipal.html">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="horarios.html">Horarios</a></li>
-                <li><a href="resultados.html">Resultados</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Precios</a>
+                    <div class="dropdown-content">
+                        <a href="tarifa.html">Tarifas</a>
+                        <a href="entrenoPrivado.html">Entreno Privado</a>
+                    </div>
+                </li>
                 <li><a href="entrenadores.html">Entrenadores</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="nutricional.html">Información Nutricional</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Blog</a>
+                    <div class="dropdown-content">
+                        <a href="nutricional.html">Información Nutricional</a>
+                        <a href="noticias.html">Noticias</a>
+                    </div>
+                </li>
                 <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Iniciar Sesión</a></li>
-                <li><a href="SignUp.html">Crear Cuenta</a></li>
+                <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>
+                <li><a href="registro.html">Crear Cuenta</a></li>
             </ul>
         </nav>
     </header>

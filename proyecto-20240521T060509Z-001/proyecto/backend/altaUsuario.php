@@ -1,34 +1,24 @@
 <?php
-session_start();
+include("connexio.php"); 
 
-include("connexio.php");
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['ID'];
-    $nom = $_POST['nom'];
-    $cognom = $_POST['cognom1'];
-    $telf = $_POST['telf'];
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nombre = $_POST['nombre'];
+    $apellido1 = $_POST['apellido1'];
+    $telefono = $_POST['telefono'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $contrasena = $_POST['contraseña'];
     $tipo = $_POST['tipo'];
-
-    $id = $conn->real_escape_string($id);
-    $nom = $conn->real_escape_string($nom);
-    $cognom = $conn->real_escape_string($cognom);
-    $telf = $conn->real_escape_string($telf);
-    $email = $conn->real_escape_string($email);
-    $password = $conn->real_escape_string($password);
-    $tipo = $conn->real_escape_string($tipo);
-
-    $sql = "INSERT INTO PERSONA (ID, nom, cognom1, telf, email, contrasenya, tipo) VALUES ('$id', '$nom', '$cognom', '$telf', '$email', '$password', '$tipo')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Usuario creado con éxito";
+   
+    $query = "INSERT INTO Persona (nombre, apellido1, telefono, email, contraseña, tipo) VALUES ('$nombre', '$apellido1', '$telefono', '$email', '$contrasena', '$tipo')";
+    
+    if(mysqli_query($conn, $query)) {
+        echo "Usuario dado de alta correctamente.";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error al dar de alta usuario: " . mysqli_error($conn);
     }
 }
-$conn->close();
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -41,72 +31,79 @@ $conn->close();
 </head>
 <body>
 <header>
-        <div class="logo">CLUB BOX SOGACHE</div>
-        <nav>
+    <div class="logo">CLUB BOX SOGACHE</div>
+    <nav>
             <ul>
-                <li><a href="paginaPrincipal.html">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="horarios.html">Horarios</a></li>
-                <li><a href="resultados.html">Resultados</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Precios</a>
+                    <div class="dropdown-content">
+                        <a href="tarifa.html">Tarifas</a>
+                        <a href="entrenoPrivado.html">Entreno Privado</a>
+                    </div>
+                </li>
                 <li><a href="entrenadores.html">Entrenadores</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="nutricional.html">Información Nutricional</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Blog</a>
+                    <div class="dropdown-content">
+                        <a href="nutricional.html">Información Nutricional</a>
+                        <a href="noticias.html">Noticias</a>
+                    </div>
+                </li>
                 <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Iniciar Sesión</a></li>
-                <li><a href="SignUp.html">Crear Cuenta</a></li>
+                <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>
+                <li><a href="registro.html">Crear Cuenta</a></li>
             </ul>
         </nav>
-    </header>
-    <main>
-        <form method="POST" action="">
-            <label for="ID">ID:</label>
-            <input type="text" name="ID" required>
-            <br>
-            <label for="nom">Nombre:</label>
-            <input type="text" name="nom" required>
-            <br>
-            <label for="cognom1">Apellido:</label>
-            <input type="text" name="cognom1" required>
-            <br>
-            <label for="telf">Teléfono:</label>
-            <input type="text" name="telf" required>
-            <br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" required>
-            <br>
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" required>
-            <br>
-            <label for="tipo">Tipo de Usuario:</label>
-            <select name="tipo">
-                <option value="entrenador">Entrenador</option>
-                <option value="usuario">Usuario</option>
-            </select>
-            <br>
-            <button type="submit">Crear Usuario</button>
-        </form>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-left">
-                <img src="img/ico_nbg.png" alt="Logo">
-                <p>C/ de Joaquín Costa, 22, Ciutat Vella, 08001 Barcelona</p>
-            </div>
-            <div class="footer-center">
-                <p>&copy; 2024 Sogache S.L. Todos los derechos reservados.</p>
-                <p>This website and its content are the property of Sogache S.L. Reproduction in whole or in part, copying, distribution, and any unauthorized use of this content is prohibited without the express written permission of Nombre de la Empresa.</p>
-                <p><a href="politica-de-privacidad.html">Política de Privacidad</a> | <a href="terminos-y-condiciones.html">Términos y Condiciones</a></p>
-                <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a></p>
-            </div>
-            <div class="footer-right">
-                <div class="social-icons">
-                    <img src="img/instagram.png" alt="Instagram" class="social-icon">
-                    <img src="img/facebook.png" alt="Facebook" class="social-icon">
-                    <img src="img/twitter.png" alt="Twitter" class="social-icon">
-                </div>
+</header>
+<main>
+    <form method="POST" action="">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+        <br>
+        <label for="apellido1">Apellido:</label>
+        <input type="text" name="apellido1" required>
+        <br>
+        <label for="telefono">Teléfono:</label>
+        <input type="text" name="telefono" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <br>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" name="contraseña" required>
+        <br>
+        <label for="tipo">Tipo de Usuario:</label>
+        <select name="tipo">
+            <option value="entrenador">Entrenador</option>
+            <option value="usuario">Usuario</option>
+        </select>
+        <br>
+        <button type="submit">Crear Usuario</button>
+    </form>
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <img src="img/ico_nbg.png" alt="Logo">
+            <p>C/ de Joaquín Costa, 22, Ciutat Vella, 08001 Barcelona</p>
+        </div>
+        <div class="footer-center">
+            <p>&copy; 2024 Sogache S.L. Todos los derechos reservados.</p>
+            <p>This website and its content are the property of Sogache S.L. Reproduction in whole or in part, copying, distribution, and any unauthorized use of this content is prohibited without the express written permission of Nombre de la Empresa.</p>
+            <p><a href="politica-de-privacidad.html">Política de Privacidad</a> <a href="terminos-y-condiciones.html">Términos y Condiciones</a></p>
+            <p><a href="privacy-policy.html">Privacy Policy</a> <a href="terms-and-conditions.html">Terms and Conditions</a></p>
+        </div>
+        <div class="footer-right">
+            <div class="social-icons">
+                <img src="img/instagram.png" alt="Instagram" class="social-icon">
+                <img src="img/facebook.png" alt="Facebook" class="social-icon">
+                <img src="img/twitter.png" alt="Twitter" class="social-icon">
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>
-
