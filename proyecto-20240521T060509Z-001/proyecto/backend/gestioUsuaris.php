@@ -16,16 +16,16 @@ session_start();
         <div class="logo">CLUB BOX SOGACHE</div>
         <nav>
             <ul>
-                <li><a href="paginaPrincipal.html">Inicio</a></li>
-                <li><a href="horarios.html">Horarios</a></li>
-                <li><a href="resultados.html">Resultados</a></li>
-                <li><a href="entrenadores.html">Entrenadores</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="nutricional.html">Información Nutricional</a></li>
-                <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>
-                <li><a href="registro.html">Crear Cuenta</a></li>
+                <li><a href="../frontend/paginaPrincipal.html">Inicio</a></li>
+                <li><a href="../frontend/horarios.html">Horarios</a></li>
+                <li><a href="../frontend/resultados.html">Resultados</a></li>
+                <li><a href="../frontend/entrenadores.html">Entrenadores</a></li>
+                <li><a href="../frontend/noticias.html">Noticias</a></li>
+                <li><a href="../frontend/nutricional.html">Información Nutricional</a></li>
+                <li><a href="../frontend/sobreNosotros.html">Sobre Nosotros</a></li>
+                <li><a href="../frontend/contacto.html">Contacto</a></li>
+                <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
+                <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
             </ul>
         </nav>
     </header>

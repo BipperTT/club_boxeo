@@ -1,25 +1,33 @@
 <?php
 session_start();
-    include("connexio.php");
+include("connexio.php");
 
-    $email = $_REQUEST['email'];
-    $contrasenya = $_REQUEST['password'];
+$email = $_REQUEST['email'];
+$password = $_REQUEST['password'];
 
-    $sql = "SELECT * FROM PERSONA WHERE email=$email AND contraseña=$contrasenya";
-    $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0 ) {
-        $fila = mysqli_fetch_array($result);
-        
-        $_SESSION['email'] = $fila['email'];
-        $_SESSION['tipo'] = $fila['tipo'];
+echo "Email: " . $email . "<br>";
+echo "Password: " . $password . "<br>";
 
-        if ($_SESSION['tipo'] == 'entrenador') {
-            header('Location: gestioUsuaris.php');
-        } else {
-            header('Location: paginaPrincipal.html');
-        }
+$sql = "SELECT * FROM Persona WHERE email='$email' AND contraseña='$password'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+    $fila = mysqli_fetch_array($result);
+    
+    $_SESSION['email'] = $fila['email'];
+    $_SESSION['tipo'] = $fila['tipo'];
+
+    if ($_SESSION['tipo'] == 'entrenador') {
+        header('Location: ../backend/gestioUsuaris.php');
     } else {
-        echo 'Usuari o Contrasenya incorrectas';
+        header('Location: ../frontend/iniciarSesion.html');
     }
+    exit();
+} else {
+    echo 'Usuario o Contraseña incorrectas';
+}
+
+mysqli_close($conn);
 ?>
