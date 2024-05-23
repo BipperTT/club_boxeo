@@ -1,6 +1,5 @@
-
 .fondo1 {
-    position: relative;
+    position: relative; /* Posición relativa */
     background-image: url(../img/fondo_index.png);
     background-color: rgba(0, 0, 0, 0.5); /* Color de superposición con transparencia */
     background-blend-mode: overlay;
@@ -11,14 +10,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2; 
 }
 .mainindex{
     padding-top: 100px; 
     display: flex;
     justify-content: center;
     align-items: flex-start; 
-    min-height: calc(100vh - 100px); 
+    min-height: calc(100vh - 100px);
+    flex-direction: column; 
+    height: auto; 
+
+
 }
+
 
 
 .texto-encima {
@@ -40,9 +45,80 @@
     left: 50%; 
     transform: translateX(-50%); 
     padding: 10px 20px; 
-    background-color: #007bff; 
-    color: white; 
+    background-color: #2f4dd3; 
+    color: rgb(0, 0, 0); 
     border: none; 
     border-radius: 5px; 
-    cursor: pointer; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.boton-encima:hover {
+    background-color: #1c26b7;
+}
+
+
+
+.container {
+    position: relative;
+    z-index: 1; /* Asegura que esté detrás del .fondo1 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.text-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    font-weight: bold;
+}
+
+.text-section p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #2f4dd3;
+    margin: 20px 0;
+    width: 50px;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-section button{
+    bottom: 20px;
+    padding: 10px 20px; 
+    background-color: #2f4dd3; 
+    color: rgb(255, 255, 255); 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.text-section button:hover {
+    background-color: #1c26b7;
 }

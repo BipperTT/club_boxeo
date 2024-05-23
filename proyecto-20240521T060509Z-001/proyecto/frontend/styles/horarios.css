@@ -2,6 +2,23 @@
     padding-top: 200px;
 }
 
-.clasimage h1 {
-    display: inline-block; 
+.boton-encima {
+    position: absolute; 
+    bottom:70px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    padding: 10px 20px; 
+    background-color: #2f4dd3; 
+    color: rgb(0, 0, 0); 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.boton-encima:hover {
+    background-color: #1c26b7;
+}
+
+h2{
+        
 }
