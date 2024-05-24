@@ -21,10 +21,7 @@
     min-height: calc(100vh - 100px);
     flex-direction: column;
     height: auto;
-
 }
-
-
 
 .texto-encima {
     position: absolute;
@@ -60,7 +57,6 @@
 .fondo-gris {
     width: 100%;
     background-color: #f0f0f0;
-
 }
 
 .container {
@@ -72,12 +68,12 @@
     padding: 50px;
     max-width: 1200px;
     margin: 0 auto;
-
 }
 
 .text-section {
     flex: 1;
-    margin-right: 20px;
+    margin-left: 20px; /* Mantén este margen para espaciar el texto de los bordes del contenedor */
+    margin-right: 20px; /* Añade margen derecho para espaciar correctamente */
 }
 
 .text-section h1 {
@@ -106,6 +102,7 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 100px; /* Ajusta el valor según sea necesario */
 }
 
 .image-section img {
@@ -128,24 +125,18 @@ hr {
     background-color: #1c26b7;
 }
 
-
 .entrenadores {
-
     text-align: center;
     margin-top: 30px;
     width: 100%;
     text-decoration: none;
     color: black;
     transition: color 0.3s ease, transform 0.3s ease; 
-
-
 }
 
 .entrenadores:hover {
-
     transform: scale(1.2); 
     color: #2f4dd3;
-
 }
 
 .entrenadores h1 {
@@ -167,8 +158,6 @@ hr {
     width: 30%;
     text-align: center;
     border-radius: 15px;
-
-
 }
 
 .box img {
@@ -184,26 +173,21 @@ hr {
 }
 
 .marca-agua {
-
     width: 300px;
 }
 
 .div-final {
-
-    width: 100%
-
-}
-
-
-.div-final {
-
+    width: 100%;
     margin-top: 20px;
-
 }
 
 .div-final h1 {
-
     text-align: center;
     font-size: 36px;
+}
 
+@media (min-width: 768px) {
+    .image-section {
+        margin-right: 100px; /* Ajusta el valor según sea necesario */
+    }
 }
