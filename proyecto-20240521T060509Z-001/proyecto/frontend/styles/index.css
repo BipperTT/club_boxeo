@@ -57,7 +57,11 @@
     background-color: #1c26b7;
 }
 
+.fondo-gris {
+    width:100%;
+    background-color: #f0f0f0;
 
+}
 
 .container {
     position: relative;
@@ -68,6 +72,7 @@
     padding: 50px;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #f0f0f0;
 }
 
 .text-section {
@@ -121,4 +126,45 @@ hr {
 
 .text-section button:hover {
     background-color: #1c26b7;
+}
+
+
+
+
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.box {
+    background-color: #f0f0f0;
+
+    margin: 10px;
+    width: 30%;
+    text-align: center;
+    border-radius: 15px;
+
+
+}
+
+.box img {
+    width: auto;
+    height: 400px;
+}
+
+.box .content {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-bottom-left-radius: 15px ;
+    border-bottom-right-radius:15px ;
+}
+
+.marca-agua {
+
+    width:300px;
 }
