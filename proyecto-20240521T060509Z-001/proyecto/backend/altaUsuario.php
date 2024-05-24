@@ -34,27 +34,27 @@ mysqli_close($conn);
     <div class="logo">CLUB BOX SOGACHE</div>
     <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="horarios.html">Horarios</a></li>
+                <li><a href="../frontend/index.html">Inicio</a></li>
+                <li><a href="../frontend/horarios.html">Horarios</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Precios</a>
                     <div class="dropdown-content">
-                        <a href="tarifa.html">Tarifas</a>
-                        <a href="entrenoPrivado.html">Entreno Privado</a>
+                        <a href="../frontend/tarifa.html">Tarifas</a>
+                        <a href="../frontend/entrenoPrivado.html">Entreno Privado</a>
                     </div>
                 </li>
-                <li><a href="entrenadores.html">Entrenadores</a></li>
+                <li><a href="../frontend/entrenadores.html">Entrenadores</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Blog</a>
                     <div class="dropdown-content">
-                        <a href="nutricional.html">Información Nutricional</a>
-                        <a href="noticias.html">Noticias</a>
+                        <a href="../frontend/nutricional.html">Información Nutricional</a>
+                        <a href="../frontend/noticias.html">Noticias</a>
                     </div>
                 </li>
-                <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>
-                <li><a href="registro.html">Crear Cuenta</a></li>
+                <li><a href="../frontend/sobreNosotros.html">Sobre Nosotros</a></li>
+                <li><a href="../frontend/contacto.html">Contacto</a></li>
+                <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
+                <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
             </ul>
         </nav>
 </header>
