@@ -58,3 +58,11 @@
 footer{
     margin-top: -700px;
 }
+
+.imagen{
+    transition: transform 0.3s ease; 
+}
+
+.imagen:hover{
+    transform: scale(2);
+}
