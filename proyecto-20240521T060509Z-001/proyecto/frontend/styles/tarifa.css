@@ -77,5 +77,5 @@ main {
 
 .pricing-table button:hover {
     background-color: #1c26b7;
-    transform: scale(1.05);
+    transform: scale(1.1) translateY(-3px) rotate(-2deg);
 }
