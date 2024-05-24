@@ -1,10 +1,11 @@
 .clasimage{
     padding-top: 200px;
+    position: relative;
 }
 
 .boton-encima {
     position: absolute; 
-    bottom:70px;
+    bottom: 70px;
     left: 50%; 
     transform: translateX(-50%); 
     padding: 10px 20px; 
@@ -13,12 +14,10 @@
     border: none; 
     border-radius: 5px; 
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition added */
 }
 
 .boton-encima:hover {
     background-color: #1c26b7;
-}
-
-h2{
-        
+    transform: scale(1.7);
 }

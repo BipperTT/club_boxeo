@@ -16,12 +16,18 @@
 }
 
 .entrenador {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     margin: 1rem;
     padding: 1rem;
     border-radius: 8px;
     width: calc(25% - 2rem);
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.entrenador:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
 
 .entrenador-header {
@@ -30,15 +36,23 @@
     border-radius: 8px 8px 0 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    color: #fff;
 }
 
 .entrenador-header button {
-    background-color: #555;
+    background-color: #ff5e5e;
     border: none;
     color: #fff;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     font-size: 0.875rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.entrenador-header button:hover {
+    background-color: #e04545;
 }
 
 .entrenador img {
@@ -47,12 +61,18 @@
     width: 100%;
     height: auto;
     border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.entrenador img:hover {
+    transform: scale(1.1);
 }
 
 .entrenador p {
-    background-color: #ddd;
+    background-color: #f8f8f8;
     padding: 0.5rem;
     border-radius: 0 0 8px 8px;
+    margin-top: 0.5rem;
 }
 
 footer{
