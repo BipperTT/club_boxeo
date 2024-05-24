@@ -172,8 +172,13 @@ hr {
     border-bottom-right-radius: 15px;
 }
 
-.marca-agua {
+.marca-agua{
     width: 300px;
+    transition: transform 0.3s ease; 
+}
+
+.marca-agua:hover{
+    transform: scale(1.5);
 }
 
 .div-final {
