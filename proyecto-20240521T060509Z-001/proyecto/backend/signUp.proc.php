@@ -18,7 +18,7 @@ if($password !== $confirm_password) {
     exit();
 }
 
-$hashed_password = md5($password);
+$hashed_password = $password;
 
 $sql = "SELECT * FROM Persona WHERE email = ?";
 $stmt = $conn->prepare($sql);
