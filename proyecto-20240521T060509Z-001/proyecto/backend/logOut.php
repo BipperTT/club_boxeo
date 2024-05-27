@@ -1,6 +1,6 @@
 <?php
 session_start();
 session_destroy();
-header("Location: ../frontend/iniciarSesion.html");
+header("Location: ../docs/iniciarSesion.html");
 exit();
 ?>

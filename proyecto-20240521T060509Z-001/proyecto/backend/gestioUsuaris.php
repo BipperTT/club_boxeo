@@ -66,10 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <a href="../docs/noticias.html">Noticias</a>
                 </div>
             </li>
-            <li><a href="../frontend/sobreNosotros.html">Sobre Nosotros</a></li>
-            <li><a href="../frontend/contacto.html">Contacto</a></li>
-            <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
-            <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
+            <li><a href="../docs/sobreNosotros.html">Sobre Nosotros</a></li>
+            <li><a href="../docs/contacto.html">Contacto</a></li>
+            <li><a href="../docs/iniciarSesion.html">Iniciar Sesión</a></li>
+            <li><a href="../docs/registro.html">Crear Cuenta</a></li>
             <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'entrenador'): ?>
                 <li><a href="gestioUsuaris.php">Gestión de Usuarios</a></li>
                 <li><a href="gestioPagos.php">Gestión de Pagos</a></li>
