@@ -21,13 +21,13 @@
     padding: 1rem;
     border-radius: 8px;
     width: calc(25% - 2rem);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .entrenador:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .entrenador-header {
@@ -58,8 +58,8 @@
 .entrenador img {
     display: block;
     margin: 1rem auto;
-    width: 100%;
-    height: auto;
+    height: 350px;
+    width: 350px;
     border-radius: 8px;
     transition: transform 0.3s ease;
 }
@@ -75,42 +75,55 @@
     margin-top: 0.5rem;
 }
 
-footer{
+footer {
     margin-top: -700px;
 }
 
-.imagen{
-    transition: transform 0.3s ease; 
+.imagen {
+    transition: transform 0.3s ease;
 }
 
-.imagen:hover{
+.imagen:hover {
     transform: scale(2);
 }
 
 @media (max-width: 768px) {
     .entrenadores-container {
-        flex-direction: column; 
-        align-items: center; 
+        flex-direction: column;
+        align-items: center;
         margin-top: 90px;
     }
 
     .entrenador {
-        width: calc(100% - 10rem); 
+        width: calc(100% - 2rem);
     }
-    .entrenadores{
 
-        margin-top: 2710px; 
+    .entrenadores {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 400px;
+
+        margin-top: 2380px;
     }
+
+    .entrenador img {
+        width: 300px;
+        height: 300px;
+        height: auto;
+    }
+
     .entrenadores h2 {
         background-color: #ccc;
         border-radius: 8px 8px 0 0;
-        display: flex; 
-        align-items: center; 
+        display: flex;
+        align-items: center;
         justify-content: center;
-        height: 100px;
+        margin: 0;
     }
-    main {
 
-        padding-bottom: 2800px;
+    main {
+        padding-bottom: 2300px;
     }
 }
