@@ -1,25 +1,27 @@
 <?php
 session_start();
 include("connexio.php");
+
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $email = $_POST['email'];
+$phone = $_POST['phone'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
-$id = $_POST['id'];
 
-if(empty($id) || empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($confirm_password)) {
+// Verificar si hay campos vacíos
+if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) || empty($password) || empty($confirm_password)) {
     echo "Todos los campos son obligatorios.";
     exit();
 }
 
-if($password !== $confirm_password) {
+// Verificar si las contraseñas coinciden
+if ($password !== $confirm_password) {
     echo "Las contraseñas no coinciden.";
     exit();
 }
 
-$hashed_password = $password;
-
+// Verificar si el correo electrónico ya está registrado
 $sql = "SELECT * FROM Persona WHERE email = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $email);
@@ -31,9 +33,10 @@ if ($result->num_rows > 0) {
     exit();
 }
 
-$sql = "INSERT INTO Persona (ID, nombre, apellido1, email, contraseña, tipo) VALUES (?, ?, ?, ?, ?, 'usuario')";
+// Insertar nuevo usuario en la base de datos
+$sql = "INSERT INTO Persona (nombre, apellido1, email, telefono, contraseña, tipo) VALUES (?, ?, ?, ?, ?, 'usuario')";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("issss", $id, $first_name, $last_name, $email, $hashed_password);
+$stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $password);
 
 if ($stmt->execute()) {
     header("Location: ../frontend/index.html");
@@ -44,3 +47,4 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
+?>
