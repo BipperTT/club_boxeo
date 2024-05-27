@@ -86,3 +86,31 @@ footer{
 .imagen:hover{
     transform: scale(2);
 }
+
+@media (max-width: 768px) {
+    .entrenadores-container {
+        flex-direction: column; 
+        align-items: center; 
+        margin-top: 90px;
+    }
+
+    .entrenador {
+        width: calc(100% - 2rem); 
+    }
+    .entrenadores{
+
+        margin-top: 2710px; 
+    }
+    .entrenadores h2 {
+        background-color: #ccc;
+        border-radius: 8px 8px 0 0;
+        display: flex; /* Hacer uso de flexbox */
+        align-items: center; /* Centrar verticalmente */
+        justify-content: center; /* Centrar horizontalmente */
+        height: 100px;
+    }
+    main {
+
+        padding-bottom: 2800px;
+    }
+}
