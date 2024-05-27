@@ -7,8 +7,20 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
     exit();
 }
 
-$query = "SELECT * FROM Persona";
+$query = "SELECT ID, nombre, apellido1, telefono, email, tipo, ha_pagado FROM Persona";
 $result = mysqli_query($conn, $query);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $ha_pagado = isset($_POST['ha_pagado']) ? 1 : 0;
+
+    $update_query = "UPDATE Persona SET ha_pagado = ? WHERE email = ?";
+    $stmt = $conn->prepare($update_query);
+    $stmt->bind_param("is", $ha_pagado, $email);
+    $stmt->execute();
+    header("Location: gestioUsuaris.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +90,7 @@ $result = mysqli_query($conn, $query);
             <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
             <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'entrenador'): ?>
                 <li><a href="gestioUsuaris.php">Gestión de Usuarios</a></li>
+                <li><a href="gestioPagos.php">Gestión de Pagos</a></li>
             <?php endif; ?>
         </ul>
     </nav>
@@ -93,6 +106,7 @@ $result = mysqli_query($conn, $query);
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Tipo</th>
+                <th>Ha Pagado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -106,21 +120,27 @@ $result = mysqli_query($conn, $query);
                     <td><?php echo htmlspecialchars($row['email']); ?></td>
                     <td><?php echo htmlspecialchars($row['tipo']); ?></td>
                     <td>
-    <form style="display:inline;" method="POST" action="modificarUsuario.php">
-        <input type="hidden" name="email" value="<?php echo $row['email']; ?>">
-        <button type="submit">Modificar</button>
-    </form>
-    <form style="display:inline;" method="POST" action="bajaUsuario.php">
-        <input type="hidden" name="email" value="<?php echo $row['email']; ?>">
-        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</button>
-    </form>
-    </td>
-    </tr>
+                        <form method="POST" action="gestioUsuaris.php">
+                            <input type="hidden" name="email" value="<?php echo htmlspecialchars($row['email']); ?>">
+                            <input type="checkbox" name="ha_pagado" onchange="this.form.submit()" <?php echo $row['ha_pagado'] ? 'checked' : ''; ?>>
+                        </form>
+                    </td>
+                    <td>
+                        <form style="display:inline;" method="POST" action="modificarUsuario.php">
+                            <input type="hidden" name="email" value="<?php echo $row['email']; ?>">
+                            <button type="submit">Modificar</button>
+                        </form>
+                        <form style="display:inline;" method="POST" action="bajaUsuario.php">
+                            <input type="hidden" name="email" value="<?php echo $row['email']; ?>">
+                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
             <?php endwhile; ?>
         </tbody>
     </table>
     <div class="boton">
-    <button onclick="location.href='altaUsuario.php'">Dar de alta un nuevo usuario</button>
+        <button onclick="location.href='altaUsuario.php'">Dar de alta un nuevo usuario</button>
     </div>
 </main>
 <footer>
@@ -138,15 +158,4 @@ $result = mysqli_query($conn, $query);
         <div class="footer-right">
             <div class="social-icons">
                 <img src="img/instagram.png" alt="Instagram" class="social-icon">
-                <img src="img/facebook.png" alt="Facebook" class="social-icon">
-                <img src="img/twitter.png" alt="Twitter" class="social-icon">
-            </div>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
-
-<?php
-mysqli_close($conn);
-?>
+                <img src="img/f
