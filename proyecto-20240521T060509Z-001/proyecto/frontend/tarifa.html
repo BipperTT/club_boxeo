@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="styles/comun.css">
     <link rel="stylesheet" href="styles/tarifa.css">
     <link rel="icon" href="img/ico_nbg.png" type="image">
-
 </head>
 <body>
     <header>
-        <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
+        <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
         <nav>
             <button class="menu-toggle" aria-label="Toggle Menu">
                 &#9776;
@@ -54,10 +53,14 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <form action="confirmacionPago.html" method="POST">
+                <?php if(isset($_SESSION['user'])): ?>
+                <form action="confirmacionPago.php" method="POST">
                     <input type="hidden" name="plan" value="SOLDADO">
                     <button type="submit">CONTRATAR</button>
                 </form>
+                <?php else: ?>
+                <p><a href="iniciarSesion.php">Iniciar Sesión</a> para contratar</p>
+                <?php endif; ?>
             </div>
             <div class="pricing-table">
                 <h2>CABO</h2>
@@ -70,10 +73,14 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <form action="confirmacionPago.html" method="POST">
+                <?php if(isset($_SESSION['user'])): ?>
+                <form action="confirmacionPago.php" method="POST">
                     <input type="hidden" name="plan" value="CABO">
                     <button type="submit">CONTRATAR</button>
                 </form>
+                <?php else: ?>
+                <p><a href="iniciarSesion.php">Iniciar Sesión</a> para contratar</p>
+                <?php endif; ?>
             </div>
             <div class="pricing-table">
                 <h2>SARGENTO</h2>
@@ -86,10 +93,14 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <form action="confirmacionPago.html" method="POST">
+                <?php if(isset($_SESSION['user'])): ?>
+                <form action="confirmacionPago.php" method="POST">
                     <input type="hidden" name="plan" value="SARGENTO">
                     <button type="submit">CONTRATAR</button>
                 </form>
+                <?php else: ?>
+                <p><a href="iniciarSesion.php">Iniciar Sesión</a> para contratar</p>
+                <?php endif; ?>
             </div>
             <div class="pricing-table">
                 <h2>TENIENTE</h2>
@@ -102,10 +113,14 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <form action="confirmacionPago.html" method="POST">
+                <?php if(isset($_SESSION['user'])): ?>
+                <form action="confirmacionPago.php" method="POST">
                     <input type="hidden" name="plan" value="TENIENTE">
                     <button type="submit">CONTRATAR</button>
                 </form>
+                <?php else: ?>
+                <p><a href="iniciarSesion.php">Iniciar Sesión</a> para contratar</p>
+                <?php endif; ?>
             </div>
         </section>
     </main>
@@ -118,8 +133,8 @@
             <div class="footer-center">
                 <p>&copy; 2024 Sogache S.L. Todos los derechos reservados.</p>
                 <p>This website and its content are the property of Sogache S.L. Reproduction in whole or in part, copying, distribution, and any unauthorized use of this content is prohibited without the express written permission of Nombre de la Empresa.</p>
-                <p><a href="politica-de-privacidad.html">Política de Privacidad</a> | <a href="terminos-y-condiciones.html">Términos y Condiciones</a></p>
-                <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a></p>
+                <p><a href="politica-de-privacidad.php">Política de Privacidad</a> | <a href="terminos-y-condiciones.php">Términos y Condiciones</a></p>
+                <p><a href="privacy-policy.php">Privacy Policy</a> | <a href="terms-and-conditions.php">Terms and Conditions</a></p>
             </div>
             <div class="footer-right">
                 <div class="social-icons">
