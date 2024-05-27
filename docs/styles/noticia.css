@@ -27,3 +27,19 @@ main {
     max-width: 100%;
     width: 800px;
 }
+
+
+@media (max-width: 768px) {
+
+    .noticia {
+        width: 90%;
+    }
+
+    main {
+        padding: 20px;
+        padding-top: 850px;
+        padding-bottom: 800px;
+    }
+    
+
+}
