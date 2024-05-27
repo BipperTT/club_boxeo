@@ -82,12 +82,5 @@ $is_logged_in = isset($_SESSION['user']);
         </div>
     </footer>
     <script>
-        const isLoggedIn = <?php echo json_encode($is_logged_in); ?>;
-        if (isLoggedIn) {
-            document.getElementById('login-link').innerHTML = '<a href="logout.php">Cerrar Sesión</a>';
-            document.getElementById('register-link').style.display = 'none';
-        }
-    </script>
-    <script src="js/scripts.js"></script>
 </body>
 </html>
