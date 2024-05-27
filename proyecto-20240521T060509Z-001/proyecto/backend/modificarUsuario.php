@@ -44,34 +44,34 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Usuario</title>
-    <link rel="stylesheet" href="../frontend/styles/comun.css">
+    <link rel="stylesheet" href="../docs/styles/comun.css">
 </head>
 <body>
 <header>
     <div class="logo">CLUB BOX SOGACHE</div>
     <nav>
         <ul>
-            <li><a href="../frontend/index.html">Inicio</a></li>
-            <li><a href="../frontend/horarios.html">Horarios</a></li>
+            <li><a href="../docs/index.html">Inicio</a></li>
+            <li><a href="../docs/horarios.html">Horarios</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Precios</a>
                 <div class="dropdown-content">
-                    <a href="../frontend/tarifa.html">Tarifas</a>
-                    <a href="../frontend/entrenoPrivado.html">Entreno Privado</a>
+                    <a href="../docs/tarifa.html">Tarifas</a>
+                    <a href="../docs/entrenoPrivado.html">Entreno Privado</a>
                 </div>
             </li>
-            <li><a href="../frontend/entrenadores.html">Entrenadores</a></li>
+            <li><a href="../docs/entrenadores.html">Entrenadores</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Blog</a>
                 <div class="dropdown-content">
-                    <a href="../frontend/nutricional.html">Información Nutricional</a>
-                    <a href="../frontend/noticias.html">Noticias</a>
+                    <a href="../docs/nutricional.html">Información Nutricional</a>
+                    <a href="../docs/noticias.html">Noticias</a>
                 </div>
             </li>
-            <li><a href="../frontend/sobreNosotros.html">Sobre Nosotros</a></li>
-            <li><a href="../frontend/contacto.html">Contacto</a></li>
-            <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
-            <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
+            <li><a href="../docs/sobreNosotros.html">Sobre Nosotros</a></li>
+            <li><a href="../docs/contacto.html">Contacto</a></li>
+            <li><a href="../docs/iniciarSesion.html">Iniciar Sesión</a></li>
+            <li><a href="../docs/registro.html">Crear Cuenta</a></li>
         </ul>
     </nav>
 </header>

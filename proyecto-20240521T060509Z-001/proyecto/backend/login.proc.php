@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
     if ($_SESSION['tipo'] == 'entrenador') {
         header('Location: ../backend/gestioUsuaris.php');
     } else {
-        header('Location: ../frontend/iniciarSesion.html');
+        header('Location: ../docs/iniciarSesion.html');
     }
     exit();
 } else {
