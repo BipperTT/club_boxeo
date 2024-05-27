@@ -72,8 +72,8 @@
 
 .text-section {
     flex: 1;
-    margin-left: 20px; /* Mantén este margen para espaciar el texto de los bordes del contenedor */
-    margin-right: 20px; /* Añade margen derecho para espaciar correctamente */
+    margin-left: 20px; 
+    margin-right: 20px; 
 }
 
 .text-section h1 {
@@ -305,5 +305,11 @@ hr {
 
     .text-section p {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .marca-agua {
+        display: none;
     }
 }
