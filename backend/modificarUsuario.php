@@ -1,42 +1,30 @@
 <?php
-session_start();
 include("connexio.php");
 
-$email = '';
-$fila = null;
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $data = json_decode(file_get_contents("php://input"), true);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
-    $email = $_POST['email'];
-    $email = $conn->real_escape_string($email);
+    $id = $data['ID'];
+    $nombre = $data['nombre'];
+    $apellido1 = $data['apellido1'];
+    $telefono = $data['telefono'];
+    $email = $data['email'];
+    $contrasena = $data['contraseña'];
+    $tipo = $data['tipo'];
 
-    $sql = "SELECT * FROM Persona WHERE email='$email'";
-    $result = $conn->query($sql);
+    $query = "UPDATE Persona SET nombre='$nombre', apellido1='$apellido1', telefono='$telefono', email='$email', contraseña=SHA1('$contrasena'), tipo='$tipo' WHERE id='$id'";
 
-    if ($result->num_rows > 0) {
-        $fila = $result->fetch_assoc();
+    if(mysqli_query($conn, $query)) {
+        echo json_encode(["message" => "Usuario modificado correctamente."]);
     } else {
-        echo "Usuario no encontrado";
+        echo json_encode(["error" => "Error al modificar usuario: " . mysqli_error($conn)]);
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['modificar'])) {
-    $email = $_POST['email'];
-    $nuevo_email = $_POST['nuevo_email'];
-    $nuevo_tipo = $_POST['nuevo_tipo'];
-
-    $nuevo_email = $conn->real_escape_string($nuevo_email);
-    $nuevo_tipo = $conn->real_escape_string($nuevo_tipo);
-
-    $sql = "UPDATE Persona SET email='$nuevo_email', tipo='$nuevo_tipo' WHERE email='$email'";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Datos de usuario modificados con éxito";
-    } else {
-        echo "Error al modificar datos: " . $conn->error;
-    }
-}
-$conn->close();
+mysqli_close($conn);
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -76,8 +64,7 @@ $conn->close();
     </nav>
 </header>
 <main>
-    <?php if ($fila): ?>
-        <form method="POST" action="">
+    <form method="POST" action="">
             <input type="hidden" name="email" value="<?php echo htmlspecialchars($fila['email']); ?>">
             <label for="nuevo_email">Nuevo Email:</label>
             <input type="email" name="nuevo_email" value="<?php echo htmlspecialchars($fila['email']); ?>" required>
@@ -90,7 +77,6 @@ $conn->close();
             <br>
             <button type="submit" name="modificar">Modificar Usuario</button>
         </form>
-    <?php endif; ?>
 </main>
 <footer>
     <div class="footer-content">
@@ -115,3 +101,4 @@ $conn->close();
 </footer>
 </body>
 </html>
+
