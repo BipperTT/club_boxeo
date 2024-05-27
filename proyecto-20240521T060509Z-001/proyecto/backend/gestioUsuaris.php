@@ -1,26 +1,5 @@
 <?php
 session_start();
-include("connexio.php");
-
-if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
-    header("Location: ../frontend/iniciarSesion.html");
-    exit();
-}
-
-$query = "SELECT ID, nombre, apellido1, telefono, email, tipo, ha_pagado FROM Persona";
-$result = mysqli_query($conn, $query);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $ha_pagado = isset($_POST['ha_pagado']) ? 1 : 0;
-
-    $update_query = "UPDATE Persona SET ha_pagado = ? WHERE email = ?";
-    $stmt = $conn->prepare($update_query);
-    $stmt->bind_param("is", $ha_pagado, $email);
-    $stmt->execute();
-    header("Location: gestioUsuaris.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -31,34 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Gestión de Usuarios</title>
     <link rel="stylesheet" href="../frontend/styles/comun.css">
     <style>
-        h1 {
-            display: flex;
+        .centered {
+            text-align: center;
         }
-
-        .boton {
-            display: flex;
+        .table-container {
+            margin: 0 auto;
+            width: fit-content;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-        .centered-title {
+        .button-container {
             text-align: center;
             margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        .centered-button {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -86,19 +47,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </li>
             <li><a href="../frontend/sobreNosotros.html">Sobre Nosotros</a></li>
             <li><a href="../frontend/contacto.html">Contacto</a></li>
-            <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
-            <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
-            <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'entrenador'): ?>
-                <li><a href="gestioUsuaris.php">Gestión de Usuarios</a></li>
-                <li><a href="gestioPagos.php">Gestión de Pagos</a></li>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <li><a href="logout.php">Logout</a></li>
+            <?php else: ?>
+                <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
+                <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
             <?php endif; ?>
         </ul>
     </nav>
 </header>
 <main>
-    <h1>Gestión de Usuarios</h1>
-    <table>
-        <thead>
+    <div class="centered">
+        <h1>Gestión de Usuarios</h1>
+    </div>
+    <div class="table-container">
+        <table border="1">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -106,41 +69,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Tipo</th>
-                <th>Ha Pagado</th>
                 <th>Acciones</th>
             </tr>
-        </thead>
-        <tbody>
-            <?php while($row = mysqli_fetch_assoc($result)): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($row['ID']); ?></td>
-                    <td><?php echo htmlspecialchars($row['nombre']); ?></td>
-                    <td><?php echo htmlspecialchars($row['apellido1']); ?></td>
-                    <td><?php echo htmlspecialchars($row['telefono']); ?></td>
-                    <td><?php echo htmlspecialchars($row['email']); ?></td>
-                    <td><?php echo htmlspecialchars($row['tipo']); ?></td>
-                    <td>
-                        <form method="POST" action="gestioUsuaris.php">
-                            <input type="hidden" name="email" value="<?php echo htmlspecialchars($row['email']); ?>">
-                            <input type="checkbox" name="ha_pagado" onchange="this.form.submit()" <?php echo $row['ha_pagado'] ? 'checked' : ''; ?>>
-                        </form>
-                    </td>
-                    <td>
-                        <form style="display:inline;" method="POST" action="modificarUsuario.php">
-                            <input type="hidden" name="email" value="<?php echo $row['email']; ?>">
-                            <button type="submit">Modificar</button>
-                        </form>
-                        <form style="display:inline;" method="POST" action="bajaUsuario.php">
-                            <input type="hidden" name="email" value="<?php echo $row['email']; ?>">
-                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-        </tbody>
-    </table>
-    <div class="boton">
-        <button onclick="location.href='altaUsuario.php'">Dar de alta un nuevo usuario</button>
+            <?php
+            // Aquí deberías realizar la consulta a la base de datos y poblar la tabla
+            include("connexio.php");
+            $sql = "SELECT * FROM Persona";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>{$row['id']}</td>
+                            <td>{$row['nombre']}</td>
+                            <td>{$row['apellido']}</td>
+                            <td>{$row['telefono']}</td>
+                            <td>{$row['email']}</td>
+                            <td>{$row['tipo']}</td>
+                            <td>
+                                <form style='display:inline;' method='POST' action='modificar.php'>
+                                    <input type='hidden' name='email' value='{$row['email']}'>
+                                    <button type='submit'>Modificar</button>
+                                </form>
+                                <form style='display:inline;' method='POST' action='eliminar.php'>
+                                    <input type='hidden' name='email' value='{$row['email']}'>
+                                    <button type='submit' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este usuario?\");'>Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No hay usuarios registrados</td></tr>";
+            }
+            $conn->close();
+            ?>
+        </table>
+    </div>
+    <div class="button-container">
+        <form method="POST" action="altaUsuario.php">
+            <button type="submit">Dar de alta un nuevo usuario</button>
+        </form>
     </div>
 </main>
 <footer>
@@ -158,4 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="footer-right">
             <div class="social-icons">
                 <img src="img/instagram.png" alt="Instagram" class="social-icon">
-                <img src="img/f
+                <img src="img/facebook.png" alt="Facebook" class="social-icon">
+                <img src="img/twitter.png" alt="Twitter" class="social-icon">
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
