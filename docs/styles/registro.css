@@ -1,5 +1,9 @@
 /* styles.css */
 
+body {
+    background-color: #f0f2f5; /* Light background color for contrast */
+}
+
 .register-section {
     display: flex;
     justify-content: center;
@@ -86,4 +90,18 @@
 .register-box button:hover {
     background-color: #1c26b7; /* Darker shade on hover */
     transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+@media only screen and (max-width: 768px) { 
+
+
+    .register-box{
+
+        width: 80%;
+        margin-top: 200px;
+
+    }
+
+
 }
