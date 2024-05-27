@@ -21,7 +21,7 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.6040342440974!2d2.1471940292695937!3d41.426113420573465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bd2ab067e4a3%3A0xa18e3e2dfcc9aa8a!2sPlaza%20de%20la%20Clota!5e0!3m2!1ses!2ses!4v1716452595481!5m2!1ses!2ses"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="form-container">
-                <form id="contact-form" action="guardar_mensaje.php" method="POST">
+                <form id="contact-form" action="../api/guardar_mensaje.php" method="POST">
                     <input type="text" name="nom" placeholder="Nombre" required>
                     <input type="email" name="email" placeholder="Correo Electrónico" required> 
                     <input type="tel" name="telefono" placeholder="Teléfono" required>
@@ -45,6 +45,7 @@
             })
             .then(response => response.text())
             .then(data => {
+                console.log("hola");
                 if (data === "success") {
                     document.getElementById("response-message").innerHTML = "<p>Mensaje enviado con éxito. ¡Gracias por contactarnos!</p>";
                     form.reset();
