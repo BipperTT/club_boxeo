@@ -68,3 +68,24 @@
     box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+@media (max-width: 768px) {
+
+
+    .noticias {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding-top: 1050px;
+        padding-bottom: 900px;
+    }
+    
+    .noticia{
+
+        width:300px;
+
+    }
+
+
+}

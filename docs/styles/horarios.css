@@ -27,3 +27,15 @@
 }
 
 
+@media (max-width: 768px) {
+    .clasimage {
+        padding-top: 100px; 
+        width: 300px;
+        height: auto;
+    }
+
+    .boton-encima {
+        bottom: 40px; 
+        font-size: 14px; 
+    }
+}

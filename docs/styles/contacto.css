@@ -31,6 +31,13 @@
     margin-bottom: 40px; /* Added bottom margin for spacing */
 }
 
+.map-container iframe{
+
+    width:600px;
+    height:450px;
+
+}
+
 #map {
     width: 100%;
     height: 400px;
@@ -81,4 +88,37 @@
 .form-container button:hover {
     background-color: #1c26b7; /* Darker shade on hover */
     transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+@media only screen and (max-width: 768px) {
+    
+    main{
+
+        margin-top: 100px;
+
+    }
+
+    .form-section {
+        flex-direction: column-reverse; 
+        align-items: center; 
+    }
+
+    .map-container {
+        order: 2; 
+    }
+
+    .map-container iframe{
+
+        width:350px;
+        height:250px;
+    
+    }
+
+
+    .form-container {
+        width: 90%; 
+        max-width: none;
+        margin-top: 20px; 
+    }
 }

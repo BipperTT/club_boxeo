@@ -79,3 +79,21 @@ main {
     background-color: #1c26b7;
     transform: scale(1.1) translateY(-3px) rotate(-2deg);
 }
+
+@media (max-width: 768px) {
+    .pricing {
+        flex-direction: column; /* Cambiar a disposición vertical */
+        align-items: center; /* Centrar verticalmente */
+    }
+
+    .pricing-table {
+        width: 100%; /* Ancho completo en dispositivos móviles */
+    }
+
+    main {
+
+        padding-top: 1100px;
+        padding-bottom: 900px;
+    }
+
+}
