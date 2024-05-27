@@ -1,26 +1,21 @@
 <?php
-session_start();
 include("connexio.php");
 
-if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
-    header("Location: ../frontend/iniciarSesion.html");
-    exit();
-}
-
-$query = "SELECT ID, nombre, apellido1, telefono, email, tipo, ha_pagado FROM Persona";
+$query = "SELECT * FROM Persona";
 $result = mysqli_query($conn, $query);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $ha_pagado = isset($_POST['ha_pagado']) ? 1 : 0;
+$usuarios = [];
 
-    $update_query = "UPDATE Persona SET ha_pagado = ? WHERE email = ?";
-    $stmt = $conn->prepare($update_query);
-    $stmt->bind_param("is", $ha_pagado, $email);
-    $stmt->execute();
-    header("Location: gestioUsuaris.php");
-    exit();
+if($result) {
+    while($row = mysqli_fetch_assoc($result)) {
+        $usuarios[] = $row;
+    }
+    echo json_encode($usuarios);
+} else {
+    echo json_encode(["error" => "Error al obtener usuarios: " . mysqli_error($conn)]);
 }
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -101,9 +96,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>
-                            <td>{$row['id']}</td>
+                            <td>{$row['ID']}</td>
                             <td>{$row['nombre']}</td>
-                            <td>{$row['apellido']}</td>
+                            <td>{$row['apellido1']}</td>
                             <td>{$row['telefono']}</td>
                             <td>{$row['email']}</td>
                             <td>{$row['tipo']}</td>
