@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user']) && $_SESSION['user']['tipo'] === 'usuario') {
+    $contratable = true;
+} else {
+    $contratable = false;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,13 +19,12 @@
 </head>
 <body>
     <header>
-        <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
-        <?php
-    include("includes/nav.php");
-?>
+        <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
+        <?php include("includes/nav.php"); ?>
     </header>
     <main>
         <section class="pricing">
+            <!-- Soldado -->
             <div class="pricing-table">
                 <h2>SOLDADO</h2>
                 <p>50€/mes</p>
@@ -28,15 +36,16 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <?php if(isset($_SESSION['user'])): ?>
-                <form action="confirmacionPago.php" method="POST">
-                    <input type="hidden" name="plan" value="SOLDADO">
-                    <button type="submit">CONTRATAR</button>
-                </form>
+                <?php if ($contratable): ?>
+                    <form action="confirmacionPago.php" method="POST">
+                        <input type="hidden" name="plan" value="SOLDADO">
+                        <button type="submit">CONTRATAR</button>
+                    </form>
                 <?php else: ?>
-                <p><a href="iniciarSesion.php">Iniciar Sesión</a> para contratar</p>
+                    <p>Esta tarifa solo está disponible para usuarios.</p>
                 <?php endif; ?>
             </div>
+            <!-- Cabo -->
             <div class="pricing-table">
                 <h2>CABO</h2>
                 <p>45€/mes</p>
@@ -48,15 +57,16 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <?php if(isset($_SESSION['user'])): ?>
-                <form action="confirmacionPago.php" method="POST">
-                    <input type="hidden" name="plan" value="CABO">
-                    <button type="submit">CONTRATAR</button>
-                </form>
+                <?php if ($contratable): ?>
+                    <form action="confirmacionPago.php" method="POST">
+                        <input type="hidden" name="plan" value="CABO">
+                        <button type="submit">CONTRATAR</button>
+                    </form>
                 <?php else: ?>
-                <p><a href="iniciarSesion.php">Iniciar Sesión</a> para contratar</p>
+                    <p>Esta tarifa solo está disponible para usuarios.</p>
                 <?php endif; ?>
             </div>
+            <!-- Sargento -->
             <div class="pricing-table">
                 <h2>SARGENTO</h2>
                 <p>41,67€/mes</p>
@@ -68,15 +78,16 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <?php if(isset($_SESSION['user'])): ?>
-                <form action="confirmacionPago.php" method="POST">
-                    <input type="hidden" name="plan" value="SARGENTO">
-                    <button type="submit">CONTRATAR</button>
-                </form>
+                <?php if ($contratable): ?>
+                    <form action="confirmacionPago.php" method="POST">
+                        <input type="hidden" name="plan" value="SARGENTO">
+                        <button type="submit">CONTRATAR</button>
+                    </form>
                 <?php else: ?>
-                <p><a href="iniciarSesion.html">Iniciar Sesión</a> para contratar</p>
+                    <p>Esta tarifa solo está disponible para usuarios.</p>
                 <?php endif; ?>
             </div>
+            <!-- Teniente -->
             <div class="pricing-table">
                 <h2>TENIENTE</h2>
                 <p>40€/mes</p>
@@ -88,21 +99,18 @@
                     <li>Sin Límite Horario</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
-                <?php if(isset($_SESSION['user'])): ?>
-                <form action="confirmacionPago.php" method="POST">
-                    <input type="hidden" name="plan" value="TENIENTE">
-                    <button type="submit">CONTRATAR</button>
-                </form>
+                <?php if ($contratable): ?>
+                    <form action="confirmacionPago.php" method="POST">
+                        <input type="hidden" name="plan" value="TENIENTE">
+                        <button type="submit">CONTRATAR</button>
+                    </form>
                 <?php else: ?>
-                <p><a href="iniciarSesion.html">Iniciar Sesión</a> para contratar</p>
+                    <p>Esta tarifa solo está disponible para usuarios.</p>
                 <?php endif; ?>
             </div>
         </section>
     </main>
-
-    <?php
-    include("includes/footer.php");
-?>
+    <?php include("includes/footer.php"); ?>
     <script src="js/scripts.js"></script>
 </body>
 </html>

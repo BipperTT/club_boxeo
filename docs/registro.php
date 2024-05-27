@@ -30,7 +30,7 @@
                     <input type="password" name="password" placeholder="Contraseña">
                     <input type="password" name="confirm_password" placeholder="Confirmar Contraseña">
                     <div class="login-link">
-                        <a href="iniciarSesion.html">¿Tienes cuenta? Inicia sesión</a>
+                        <a href="iniciarSesion.php">¿Tienes cuenta? Inicia sesión</a>
                     </div>
                     <button type="submit">Crear Cuenta</button>
                 </form>

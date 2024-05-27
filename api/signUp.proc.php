@@ -15,13 +15,11 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) ||
     exit();
 }
 
-// Verificar si las contraseñas coinciden
 if ($password !== $confirm_password) {
     echo "Las contraseñas no coinciden.";
     exit();
 }
 
-// Verificar si el correo electrónico ya está registrado
 $sql = "SELECT * FROM Persona WHERE email = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $email);
@@ -33,13 +31,12 @@ if ($result->num_rows > 0) {
     exit();
 }
 
-// Insertar nuevo usuario en la base de datos
 $sql = "INSERT INTO Persona (nombre, apellido1, email, telefono, contraseña, tipo) VALUES (?, ?, ?, ?, ?, 'usuario')";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $password);
 
 if ($stmt->execute()) {
-    header("Location: ../docs/index.html");
+    header("Location: ../docs/index.php");
     exit();
 } else {
     echo "Error en el registro: " . $stmt->error;

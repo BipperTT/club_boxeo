@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Alta de Usuario</title>
+    <link rel="stylesheet" href="styles/comun.css">
 </head>
 <?php
     include("includes/nav.php");
@@ -34,13 +35,11 @@
         <button type="submit">Crear Usuario</button>
     </form>
 
-    <!-- Script para manejar el envío del formulario -->
     <script>
         const form = document.getElementById('usuario-form');
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             
-            // Obtener los valores del formulario
             const nombre = document.getElementById('nombre').value;
             const apellido1 = document.getElementById('apellido1').value;
             const telefono = document.getElementById('telefono').value;
@@ -48,7 +47,6 @@
             const contraseña = document.getElementById('contrasena').value;
             const tipo = document.getElementById('tipo').value;
 
-            // Crear objeto con los datos del usuario
             const data = {
                 nombre: nombre,
                 apellido1: apellido1,
@@ -58,7 +56,6 @@
                 tipo: tipo
             };
 
-            // Enviar los datos al servidor
             fetch('../api/gestioUsuaris.php', {
                 method: 'POST',
                 headers: {
