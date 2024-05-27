@@ -1,37 +1,9 @@
-<?php
-include("connexio.php");
-
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $data = json_decode(file_get_contents("php://input"), true);
-
-    $id = $data['ID'];
-    $nombre = $data['nombre'];
-    $apellido1 = $data['apellido1'];
-    $telefono = $data['telefono'];
-    $email = $data['email'];
-    $contrasena = $data['contraseña'];
-    $tipo = $data['tipo'];
-
-    $query = "UPDATE Persona SET nombre='$nombre', apellido1='$apellido1', telefono='$telefono', email='$email', contraseña=SHA1('$contrasena'), tipo='$tipo' WHERE id='$id'";
-
-    if(mysqli_query($conn, $query)) {
-        echo json_encode(["message" => "Usuario modificado correctamente."]);
-    } else {
-        echo json_encode(["error" => "Error al modificar usuario: " . mysqli_error($conn)]);
-    }
-}
-
-mysqli_close($conn);
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Usuario</title>
+    <title>Dar de Baja Usuario</title>
     <link rel="stylesheet" href="../docs/styles/comun.css">
 </head>
 <body>
@@ -64,19 +36,7 @@ mysqli_close($conn);
     </nav>
 </header>
 <main>
-    <form method="POST" action="">
-            <input type="hidden" name="email" value="<?php echo htmlspecialchars($fila['email']); ?>">
-            <label for="nuevo_email">Nuevo Email:</label>
-            <input type="email" name="nuevo_email" value="<?php echo htmlspecialchars($fila['email']); ?>" required>
-            <br>
-            <label for="nuevo_tipo">Nuevo Tipo de Usuario:</label>
-            <select name="nuevo_tipo">
-                <option value="entrenador" <?php if ($fila['tipo'] == 'entrenador') echo 'selected'; ?>>Entrenador</option>
-                <option value="usuario" <?php if ($fila['tipo'] == 'usuario') echo 'selected'; ?>>Usuario</option>
-            </select>
-            <br>
-            <button type="submit" name="modificar">Modificar Usuario</button>
-        </form>
+    <p><?php echo isset($mensaje) ? $mensaje : ''; ?></p>
 </main>
 <footer>
     <div class="footer-content">
@@ -101,4 +61,3 @@ mysqli_close($conn);
 </footer>
 </body>
 </html>
-

@@ -20,9 +20,9 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['tipo'] = $fila['tipo'];
 
     if ($_SESSION['tipo'] == 'entrenador') {
-        header('Location: gestioUsuaris.php');
+        header('Location: ../docs/gestionUsuaris.html');
     } else {
-        header('Location: ../docs/iniciarSesion.html');
+        header('Location: ../docs/index.html');
     }
     exit();
 } else {
