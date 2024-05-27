@@ -10,31 +10,9 @@
 <body>
     <header>
         <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="horarios.html">Horarios</a></li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Precios</a>
-                    <div class="dropdown-content">
-                        <a href="tarifa.html">Tarifas</a>
-                        <a href="entrenoPrivado.html">Entreno Privado</a>
-                    </div>
-                </li>
-                <li><a href="entrenadores.html">Entrenadores</a></li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Blog</a>
-                    <div class="dropdown-content">
-                        <a href="nutricional.html">Información Nutricional</a>
-                        <a href="noticias.html">Noticias</a>
-                    </div>
-                </li>
-                <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>
-                <li><a href="registro.html">Crear Cuenta</a></li>
-            </ul>
-        </nav>
+        <?php
+    include("includes/nav.php");
+?>
     </header>
     <main>
         <section class="confirmation">
@@ -64,5 +42,8 @@
             </div>
         </div>
     </footer>
+    <?php
+    include("includes/footer.php");
+?>
 </body>
 </html>
