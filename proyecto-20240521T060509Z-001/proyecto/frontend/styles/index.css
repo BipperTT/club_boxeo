@@ -196,3 +196,114 @@ hr {
         margin-right: 100px; /* Ajusta el valor según sea necesario */
     }
 }
+
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .image-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .text-section {
+        margin: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .box {
+        width: 45%;
+    }
+
+    .box img {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .entrenadores h1 {
+        font-size: 28px;
+    }
+
+    .text-section h1 {
+        font-size: 28px;
+    }
+
+    .text-section p {
+        font-size: 16px;
+    }
+
+    .mainindex {
+        padding-top: 50px;
+    }
+
+    .fondo1 {
+        height: 300px;
+    }
+
+    .texto-encima img {
+        height: 200px;
+    }
+
+    .boton-encima {
+        padding: 8px 16px;
+        bottom: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .container2 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .text-section button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+
+
+    .mainindex {
+        padding-top: 80px;
+    }
+
+    .fondo1 {
+        height: 250px;
+    }
+
+    .texto-encima img {
+        height: 150px;
+    }
+
+    .boton-encima {
+        padding: 6px 12px;
+        bottom: 10px;
+    }
+
+    .text-section h1 {
+        font-size: 24px;
+    }
+
+    .entrenadores h1 {
+        font-size: 24px;
+    }
+
+    .text-section p {
+        font-size: 14px;
+    }
+}
