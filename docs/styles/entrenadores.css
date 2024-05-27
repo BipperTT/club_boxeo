@@ -95,7 +95,7 @@ footer{
     }
 
     .entrenador {
-        width: calc(100% - 2rem); 
+        width: calc(100% - 5rem); 
     }
     .entrenadores{
 
@@ -104,9 +104,9 @@ footer{
     .entrenadores h2 {
         background-color: #ccc;
         border-radius: 8px 8px 0 0;
-        display: flex; /* Hacer uso de flexbox */
-        align-items: center; /* Centrar verticalmente */
-        justify-content: center; /* Centrar horizontalmente */
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
         height: 100px;
     }
     main {
