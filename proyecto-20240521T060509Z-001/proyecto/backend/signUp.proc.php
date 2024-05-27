@@ -39,7 +39,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $password);
 
 if ($stmt->execute()) {
-    header("Location: ../frontend/index.html");
+    header("Location: ../docs/index.html");
     exit();
 } else {
     echo "Error en el registro: " . $stmt->error;

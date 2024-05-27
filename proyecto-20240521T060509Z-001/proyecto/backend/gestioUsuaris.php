@@ -1,5 +1,26 @@
 <?php
 session_start();
+include("connexio.php");
+
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
+    header("Location: ../frontend/iniciarSesion.html");
+    exit();
+}
+
+$query = "SELECT ID, nombre, apellido1, telefono, email, tipo, ha_pagado FROM Persona";
+$result = mysqli_query($conn, $query);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $ha_pagado = isset($_POST['ha_pagado']) ? 1 : 0;
+
+    $update_query = "UPDATE Persona SET ha_pagado = ? WHERE email = ?";
+    $stmt = $conn->prepare($update_query);
+    $stmt->bind_param("is", $ha_pagado, $email);
+    $stmt->execute();
+    header("Location: gestioUsuaris.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +29,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
-    <link rel="stylesheet" href="../frontend/styles/comun.css">
+    <link rel="stylesheet" href="../docs/styles/comun.css">
     <style>
         .centered {
             text-align: center;
@@ -28,30 +49,30 @@ session_start();
     <div class="logo">CLUB BOX SOGACHE</div>
     <nav>
         <ul>
-            <li><a href="../frontend/index.html">Inicio</a></li>
-            <li><a href="../frontend/horarios.html">Horarios</a></li>
+            <li><a href="../docs/index.html">Inicio</a></li>
+            <li><a href="../docs/horarios.html">Horarios</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Precios</a>
                 <div class="dropdown-content">
-                    <a href="../frontend/tarifa.html">Tarifas</a>
-                    <a href="../frontend/entrenoPrivado.html">Entreno Privado</a>
+                    <a href="../docs/tarifa.html">Tarifas</a>
+                    <a href="../docs/entrenoPrivado.html">Entreno Privado</a>
                 </div>
             </li>
-            <li><a href="../frontend/entrenadores.html">Entrenadores</a></li>
+            <li><a href="../docs/entrenadores.html">Entrenadores</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Blog</a>
                 <div class="dropdown-content">
-                    <a href="../frontend/nutricional.html">Información Nutricional</a>
-                    <a href="../frontend/noticias.html">Noticias</a>
+                    <a href="../docs/nutricional.html">Información Nutricional</a>
+                    <a href="../docs/noticias.html">Noticias</a>
                 </div>
             </li>
             <li><a href="../frontend/sobreNosotros.html">Sobre Nosotros</a></li>
             <li><a href="../frontend/contacto.html">Contacto</a></li>
-            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <li><a href="logout.php">Logout</a></li>
-            <?php else: ?>
-                <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
-                <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
+            <li><a href="../frontend/iniciarSesion.html">Iniciar Sesión</a></li>
+            <li><a href="../frontend/registro.html">Crear Cuenta</a></li>
+            <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'entrenador'): ?>
+                <li><a href="gestioUsuaris.php">Gestión de Usuarios</a></li>
+                <li><a href="gestioPagos.php">Gestión de Pagos</a></li>
             <?php endif; ?>
         </ul>
     </nav>
