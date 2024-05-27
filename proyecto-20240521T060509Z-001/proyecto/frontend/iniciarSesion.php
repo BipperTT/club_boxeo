@@ -1,3 +1,7 @@
+<?php
+session_start();
+$is_logged_in = isset($_SESSION['user']);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,12 +14,12 @@
 </head>
 <body>
     <header>
-        <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
+        <div class="logo"> <a href="index.html"><img src="img/title.png" alt="Logo"></a></div>
         <nav>
             <button class="menu-toggle" aria-label="Toggle Menu">
                 &#9776;
             </button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="horarios.html">Horarios</a></li>
                 <li class="dropdown">
@@ -35,8 +39,8 @@
                 </li>
                 <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="iniciarSesion.html">Iniciar Sesión</a></li>
-                <li><a href="registro.html">Crear Cuenta</a></li>
+                <li id="login-link"><a href="iniciarSesion.html">Iniciar Sesión</a></li>
+                <li id="register-link"><a href="registro.html">Crear Cuenta</a></li>
             </ul>
         </nav>
     </header>
@@ -53,7 +57,6 @@
                     </div>
                     <button type="submit">Iniciar Sesión</button>
                 </form>
-                
             </div>
         </section>
     </main>
@@ -78,7 +81,13 @@
             </div>
         </div>
     </footer>
+    <script>
+        const isLoggedIn = <?php echo json_encode($is_logged_in); ?>;
+        if (isLoggedIn) {
+            document.getElementById('login-link').innerHTML = '<a href="logout.php">Cerrar Sesión</a>';
+            document.getElementById('register-link').style.display = 'none';
+        }
+    </script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
-
