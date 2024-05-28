@@ -52,7 +52,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
                         <td>${mensaje.telefono}</td>
                         <td>${mensaje.mensaje}</td>
                         <td>${mensaje.fecha_envio}</td>
-                        <td>${mensaje.respuesta}</td>
+                        <td><a href='enviar_respuesta.php?ID=${mensaje.id}'>Respuesta</a></td>
                     `;
                     mensajeTable.appendChild(row);
                 });
