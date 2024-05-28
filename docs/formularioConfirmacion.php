@@ -1,47 +1,30 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
 if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'usuario') {
-    header('Location: tarifa.php');
+    http_response_code(401);
+    echo json_encode(["error" => "Unauthorized"]);
     exit();
 }
 
-$plan = $_POST['plan'];
-$duracion = $_POST['duracion'];
-$precio = $_POST['precio'];
-?>
+$data = json_decode(file_get_contents('php://input'), true);
+$plan = $data['plan'];
+$duracion = $data['duracion'];
+$precio = $data['precio'];
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmar Tarifa</title>
-    <link rel="stylesheet" href="styles/comun.css">
-    <link rel="stylesheet" href="styles/confirmacionPago.css">
-    <link rel="icon" href="img/ico_nbg.png" type="image">
-</head>
-<body>
-    <header>
-        <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
-        <?php include("includes/nav.php"); ?>
-    </header>
-    <main>
-        <section class="confirmation">
-            <h1>Confirmar Tarifa</h1>
-            <form action="../api/procesarPago.php" method="POST">
-                <input type="hidden" name="plan" value="<?php echo htmlspecialchars($plan); ?>">
-                <input type="hidden" name="duracion" value="<?php echo htmlspecialchars($duracion); ?>">
-                <input type="hidden" name="precio" value="<?php echo htmlspecialchars($precio); ?>">
-                
-                <p>Plan: <?php echo htmlspecialchars($plan); ?></p>
-                <p>Duración: <?php echo htmlspecialchars($duracion); ?> meses</p>
-                <p>Precio: <?php echo htmlspecialchars($precio); ?>€</p>
-                
-                <button type="submit">Confirmar y Pagar</button>
-            </form>
-        </section>
-    </main>
-    <?php include("includes/footer.php"); ?>
-</body>
-</html>
+// Verificación básica de los datos
+if (empty($plan) || empty($duracion) || empty($precio)) {
+    http_response_code(400);
+    echo json_encode(["error" => "Invalid input"]);
+    exit();
+}
+
+$response = [
+    "plan" => htmlspecialchars($plan),
+    "duracion" => htmlspecialchars($duracion),
+    "precio" => htmlspecialchars($precio)
+];
+
+echo json_encode($response);
+?>
