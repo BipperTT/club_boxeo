@@ -5,7 +5,7 @@
     <title>Veure categories</title>
     <link rel="stylesheet" href="styles/comun.css">
     <link rel="stylesheet" href="styles/gestionUsuaris.css">
-
+    <link rel="icon" href="img/ico_nbg.png" type="image">
 </head>
 <header>
     <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>

@@ -15,6 +15,7 @@ h1 {
     text-align: center;
     color: #333;
     margin-top: 20px;
+    margin-left: 50px;
 }
 
 table {
@@ -78,6 +79,7 @@ table tbody a:hover {
     h1 {
         text-align: center;
         margin-top: 10px;
+        margin-left: 0px;
     }
 
     table {

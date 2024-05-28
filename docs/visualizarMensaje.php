@@ -1,16 +1,8 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
-    header("Location: index.php");
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Veure categories</title>
+    <title>Mensajes</title>
     <link rel="stylesheet" href="styles/comun.css">
     <link rel="stylesheet" href="styles/gestionUsuaris.css">
 </head>
@@ -31,6 +23,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
                 <th>Mensaje</th>
                 <th>Fecha Envio</th>
                 <th>Respuesta</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody id="mensaje-table">
@@ -53,6 +46,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
                         <td>${mensaje.mensaje}</td>
                         <td>${mensaje.fecha_envio}</td>
                         <td>${mensaje.respuesta}</td>
+                        <td><a href="enviar_respuesta.php?id=${mensaje.id}">Responder</a></td>
                     `;
                     mensajeTable.appendChild(row);
                 });
