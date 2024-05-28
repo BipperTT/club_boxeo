@@ -61,8 +61,7 @@
             .then(data => {
                 if (data.status === 'success') {
                     form.reset();
-                    alert('Mensaje creado exitosamente');
-                    window.location.href = 'visualizarMensaje.php';
+                    alert('Mensaje enviado exitosamente');
                 } else {
                     console.error('Error:', data);
                     alert('Hubo un problema al enviar el mensaje.');

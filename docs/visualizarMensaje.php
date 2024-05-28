@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
+    header("Location: index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
