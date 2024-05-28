@@ -21,40 +21,56 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.6040342440974!2d2.1471940292695937!3d41.426113420573465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bd2ab067e4a3%3A0xa18e3e2dfcc9aa8a!2sPlaza%20de%20la%20Clota!5e0!3m2!1ses!2ses!4v1716452595481!5m2!1ses!2ses"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="form-container">
-                <form id="contact-form" action="../api/guardar_mensaje.php" method="POST">
-                    <input type="text" name="nom" placeholder="Nombre" required>
-                    <input type="email" name="email" placeholder="Correo Electrónico" required> 
-                    <input type="tel" name="telefono" placeholder="Teléfono" required>
-                    <textarea name="message" placeholder="Mensaje" required></textarea>
+                <form id="contact-form">
+                    <input type="text" id="nom" name="nom" placeholder="Nombre" required>
+                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" required> 
+                    <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+                    <textarea name="message" id="mensaje" placeholder="Mensaje" required></textarea>
                     <button type="submit">Enviar</button>
                 </form>
-                <div id="response-message"></div>
             </div>
         </section>
     </main>
     <?php include("includes/footer.php"); ?>
     <script src="js/scripts.js"></script>
     <script>
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (event) => {
             event.preventDefault();
-            var form = this;
-            var formData = new FormData(form);
-            fetch(form.action, {
-                method: form.method,
-                body: formData
+            
+            const nombre = document.getElementById('nom').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            const data = {
+                nombre: nombre,
+                email: email,
+                telefono: telefono,
+                mensaje: mensaje,
+            };
+
+            fetch('../api/guardar_mensaje.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
-                console.log("hola");
-                if (data === "success") {
-                    document.getElementById("response-message").innerHTML = "<p>Mensaje enviado con éxito. ¡Gracias por contactarnos!</p>";
+                if (data.status === 'success') {
                     form.reset();
+                    alert('Mensaje creado exitosamente');
+                    window.location.href = 'visualizarMensaje.php';
                 } else {
-                    document.getElementById("response-message").innerHTML = "<p>Error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>";
+                    console.error('Error:', data);
+                    alert('Hubo un problema al enviar el mensaje.');
                 }
             })
             .catch(error => {
-                console.error('Error al enviar el mensaje:', error);
+                console.error('Error:', error);
+                alert('Hubo un problema al enviar el mensaje.');
             });
         });
     </script>

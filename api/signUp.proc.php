@@ -9,7 +9,6 @@ $phone = $_POST['phone'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
-// Verificar si hay campos vacíos
 if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) || empty($password) || empty($confirm_password)) {
     echo "Todos los campos son obligatorios.";
     exit();
