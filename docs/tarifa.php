@@ -38,8 +38,10 @@ if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
                     <li>SIN PERMANENCIA</li>
                 </ul>
                 <?php if ($contratable): ?>
-                    <form action="confirmacionPago.php" method="POST">
+                    <form action="formularioConfirmacion.php" method="POST">
                         <input type="hidden" name="plan" value="SOLDADO">
+                        <input type="hidden" name="duracion" value="1">
+                        <input type="hidden" name="precio" value="50.00">
                         <button type="submit">CONTRATAR</button>
                     </form>
                 <?php else: ?>
@@ -59,8 +61,10 @@ if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
                     <li>SIN PERMANENCIA</li>
                 </ul>
                 <?php if ($contratable): ?>
-                    <form action="confirmacionPago.php" method="POST">
+                    <form action="formularioConfirmacion.php" method="POST">
                         <input type="hidden" name="plan" value="CABO">
+                        <input type="hidden" name="duracion" value="3">
+                        <input type="hidden" name="precio" value="135.00">
                         <button type="submit">CONTRATAR</button>
                     </form>
                 <?php else: ?>
@@ -80,8 +84,10 @@ if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
                     <li>SIN PERMANENCIA</li>
                 </ul>
                 <?php if ($contratable): ?>
-                    <form action="confirmacionPago.php" method="POST">
+                    <form action="formularioConfirmacion.php" method="POST">
                         <input type="hidden" name="plan" value="SARGENTO">
+                        <input type="hidden" name="duracion" value="6">
+                        <input type="hidden" name="precio" value="250.00">
                         <button type="submit">CONTRATAR</button>
                     </form>
                 <?php else: ?>
@@ -101,8 +107,10 @@ if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
                     <li>SIN PERMANENCIA</li>
                 </ul>
                 <?php if ($contratable): ?>
-                    <form action="confirmacionPago.php" method="POST">
+                    <form action="formularioConfirmacion.php" method="POST">
                         <input type="hidden" name="plan" value="TENIENTE">
+                        <input type="hidden" name="duracion" value="12">
+                        <input type="hidden" name="precio" value="480.00">
                         <button type="submit">CONTRATAR</button>
                     </form>
                 <?php else: ?>
