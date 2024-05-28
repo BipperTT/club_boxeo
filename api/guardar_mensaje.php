@@ -1,38 +1,38 @@
 <?php
 include("connexio.php");
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET' & !isset($_GET['email'])) {
-        $result = mysqli_query($conn, "SELECT * FROM Mensaje");
-        $mensajes = array();
-        while ($row = mysqli_fetch_assoc($result)) {
-            $categories[] = $row;
-        }
-        header('Content-Type: application/json');
-        echo json_encode($mensajes);
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['email'])) {
+    $result = mysqli_query($conn, "SELECT * FROM Mensaje");
+    $mensajes = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $mensajes[] = $row;
     }
-?>
-<?php
+    header('Content-Type: application/json');
+    echo json_encode($mensajes);
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $data = json_decode(file_get_contents('php://input'), true);
-        $nom = $data['nom'];
-        $email = $data['email'];
-        $telefono = $data['telefono'];
-        $mensaje = $data['mensaje'];
-        $result = mysqli_query($conn, "INSERT INTO Mensaje nombre, email, telefono, mensaje VALUES ('$nom'),('$email'),('$telefono'),('$mensaje')");
+    $data = json_decode(file_get_contents('php://input'), true);
+    if (isset($data['nombre'], $data['email'], $data['telefono'], $data['mensaje'])) {
+        $nombre = mysqli_real_escape_string($conn, $data['nombre']);
+        $email = mysqli_real_escape_string($conn, $data['email']);
+        $telefono = mysqli_real_escape_string($conn, $data['telefono']);
+        $mensaje = mysqli_real_escape_string($conn, $data['mensaje']);
+        
+        $query = "INSERT INTO Mensaje (nombre, email, telefono, mensaje) VALUES ('$nombre', '$email', '$telefono', '$mensaje')";
+        $result = mysqli_query($conn, $query);
+
         if ($result) {
             $response = array('status' => 'success');
         } else {
-            $response = array('status' => 'error');
+            $response = array('status' => 'error', 'message' => mysqli_error($conn));
         }
-        header('Content-Type: application/json');
-        echo json_encode($response);
+    } else {
+        $response = array('status' => 'error', 'message' => 'Faltan campos obligatorios');
     }
-?>
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['mensaje_id'], $_POST['respuesta'])) {
-        $mensaje_id = $_POST['mensaje_id'];
-        $respuesta = $_POST['respuesta'];
-    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit;
 }
 ?>

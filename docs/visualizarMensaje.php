@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Veure categories</title>
     <link rel="stylesheet" href="styles/comun.css">
     <link rel="stylesheet" href="styles/gestionUsuaris.css">
-
 </head>
+<body>
 <header>
     <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
-    <?php
-    include("includes/nav.php");
-?>
+    <?php include("includes/nav.php"); ?>
 </header>
-<body>
-    <main>
-    <h1>Personas</h1>
+<main>
+    <h1>Mensajes</h1>
     <table>
         <thead>
             <tr>
@@ -30,22 +27,18 @@
         </thead>
         <tbody id="mensaje-table">
         </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="10"><a href="enviar_respuesta.php">RESPUESTA</a></th>
-            </tr>
-        </tfoot>
     </table>
 </main>
-    <script>
+<script>
+    window.onload = function() {
         fetch('../api/guardar_mensaje.php')
             .then(response => response.json())
             .then(data => {
-                const personasTable = document.getElementById('mensaje-table');
+                const mensajeTable = document.getElementById('mensaje-table');
                 data.forEach(mensaje => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${mensaje.ID}</td>
+                        <td>${mensaje.id}</td>
                         <td>${mensaje.nombre}</td>
                         <td>${mensaje.email}</td>
                         <td>${mensaje.telefono}</td>
@@ -53,12 +46,12 @@
                         <td>${mensaje.fecha_envio}</td>
                         <td>${mensaje.respuesta}</td>
                     `;
-                    personasTable.appendChild(row);
+                    mensajeTable.appendChild(row);
                 });
-            });
-    </script>
-       <?php
-    include("includes/footer.php");
-?>
+            })
+            .catch(error => console.error('Error al obtener mensajes:', error));
+    };
+</script>
+<?php include("includes/footer.php"); ?>
 </body>
 </html>
