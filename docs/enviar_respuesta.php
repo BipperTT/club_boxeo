@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'Entrenador') {
     header("Location: index.php");
     exit;
 }
