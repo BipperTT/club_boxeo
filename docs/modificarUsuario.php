@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="styles/comun.css">
+    <link rel="stylesheet" href="styles/modificarUsuario.css">
+
+
+
 </head>
-<?php
+<header>
+    <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
+    <?php
     include("includes/nav.php");
 ?>
+</header>
 <body>
-    <h1>Modificar Usuario</h1>
+
+<main>
+
     <form id="usuario-form">
+    <h2>Modificar Usuario</h2>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
         
@@ -36,6 +47,7 @@
         
         <button type="submit">Guardar</button>
     </form>
+</main>    
 
     <!-- Carga de los datos del usuario en el formulario -->
     <script>
