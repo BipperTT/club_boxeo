@@ -10,15 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($data['mensaje_id'], $data['respuesta'])) {
         $mensaje_id = mysqli_real_escape_string($conn, $data['mensaje_id']);
         $respuesta = mysqli_real_escape_string($conn, $data['respuesta']);
-
+        echo 'holiqis';
         // Consulta para actualizar la respuesta en la base de datos
-        $query = "UPDATE Mensaje SET respuesta = '$respuesta' WHERE id = $mensaje_id";
+        // Consulta para actualizar la respuesta en la base de datos
+        $query = "INSERT INTO Mensaje (id, respuesta) VALUES ($mensaje_id, '" . mysqli_real_escape_string($conn, $respuesta) . "')";
         $result = mysqli_query($conn, $query);
+        
 
         // Comprobar si la consulta se ejecutó correctamente
         if ($result) {
             $response = array('status' => 'success');
         } else {
+            echo 'hola';
             // Añadir información del error de MySQL
             $response = array('status' => 'error', 'message' => 'Error en la consulta SQL: ' . mysqli_error($conn));
         }

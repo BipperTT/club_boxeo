@@ -8,7 +8,13 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
     exit;
 }
 
-$mensaje_id = isset($_GET['id']) ? $_GET['id'] : '';
+// Verificar que el mensaje_id está presente en la URL
+if (!isset($_GET['id'])) {
+    echo "ID del mensaje no especificado";
+    exit;
+}
+
+$mensaje_id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,19 +43,14 @@ $mensaje_id = isset($_GET['id']) ? $_GET['id'] : '';
         const mensaje_id = document.getElementById('mensaje_id').value;
         const respuesta = document.getElementById('respuesta').value;
 
-        if (!mensaje_id) {
-            alert('ID del mensaje no está presente.');
-            return;
-        }
-
         const data = {
             mensaje_id: mensaje_id,
             respuesta: respuesta
         };
 
-        console.log('Datos enviados:', data); // Añadir registro de depuración
+        console.log('Datos enviados:', data);
 
-        fetch('api/actualizar_respuesta.php', {
+        fetch('../api/actualizar_respuesta.php', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +59,7 @@ $mensaje_id = isset($_GET['id']) ? $_GET['id'] : '';
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Respuesta recibida:', data); // Añadir registro de depuración
+            console.log('Respuesta recibida:', data);
             if (data.status === 'success') {
                 alert('Respuesta enviada exitosamente');
                 window.location.href = 'visualizarMensaje.php';
@@ -67,8 +68,7 @@ $mensaje_id = isset($_GET['id']) ? $_GET['id'] : '';
             }
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Hubo un problema al enviar la respuesta.');
+            
         });
     });
 </script>
