@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['email'] = $fila['email'];
     $_SESSION['tipo'] = $fila['tipo'];
 
-    if ($_SESSION['tipo'] == 'entrenador') {
+    if ($_SESSION['tipo'] == 'Entrenador') {
         header('Location: ../docs/gestionUsuaris.php');
     } else {
         header('Location: ../docs/index.php');
