@@ -13,6 +13,7 @@
     <header>
         <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
         <?php
+        
     include("includes/nav.php");
 ?>
     </header>

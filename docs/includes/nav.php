@@ -27,7 +27,7 @@ session_start();
         <li><a href="sobreNosotros.php">Sobre Nosotros</a></li>
         <li><a href="formulario_contacto.php">Contacto</a></li>
         <?php if(isset($_SESSION['email'])): ?>
-            <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'entrenador'): ?>
+            <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'Entrenador'): ?>
                 <li><a href="../docs/gestionUsuaris.php">Gestión Usuarios</a></li>
                 <li><a href="../api/visualizarMensaje.php">Comentarios</a></li>
             <?php endif; ?>
