@@ -21,7 +21,7 @@
                     </div>
                 </li>
                 <li><a href="sobreNosotros.php">Sobre Nosotros</a></li>
-                <li><a href="contacto.php">Contacto</a></li>
+                <li><a href="formulario_contacto.php">Contacto</a></li>
                 <li><a href="iniciarSesion.php">Iniciar Sesión</a></li>
                 <li><a href="registro.php">Crear Cuenta</a></li>
             </ul>

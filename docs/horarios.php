@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
+        <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
         <?php
     include("includes/nav.php");
 ?>
@@ -18,7 +18,7 @@
 
     <main>
         <img src="img/horario.png" alt="horario" class="clasimage">
-        <a href="entrenoPrivado.html"><button class="boton-encima">RESERVAR ENTRENO PRIVADO</button></a>
+        <a href="entrenoPrivado.php"><button class="boton-encima">RESERVAR ENTRENO PRIVADO</button></a>
     </main>
     <?php
     include("includes/footer.php");

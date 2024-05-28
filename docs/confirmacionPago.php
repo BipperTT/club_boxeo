@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
+        <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
         <?php
     include("includes/nav.php");
 ?>
@@ -18,7 +18,7 @@
         <section class="confirmation">
             <h1>¡Gracias por tu pago!</h1>
             <p>Muchas gracias por tu pago, en breve el administrador determinará si se ha realizado correctamente y se pondra en contacto con usted, muchas gracias.</p>
-            <button onclick="location.href='index.html'">Volver al Inicio</button>
+            <button onclick="location.href='index.php'">Volver al Inicio</button>
         </section>
     </main>
     <footer>

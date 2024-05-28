@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
+        <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
         <?php
     include("includes/nav.php");
 ?>
@@ -24,7 +24,7 @@
                     <input type="text" id="email" name="email" placeholder="mail" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <div class="register-link">
-                        <a href="registro.html">No tienes cuenta? Regístrate</a>
+                        <a href="registro.php">No tienes cuenta? Regístrate</a>
                     </div>
                     <button type="submit">Iniciar Sesión</button>
                 </form>

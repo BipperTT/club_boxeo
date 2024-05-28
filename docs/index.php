@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="img/title.png" alt="Club Box Sogache Logo"></a>
+            <a href="index.php"><img src="img/title.png" alt="Club Box Sogache Logo"></a>
         </div>
         <?php
     include("includes/nav.php");
@@ -23,7 +23,7 @@
             <div class="texto-encima">
                 <img src="img/Boxeo-en-Barcelona.png" alt="Boxeo en Barcelona">
             </div>
-            <a href="tarifa.html"><button class="boton-encima">Ver tarifas</button></a>
+            <a href="tarifa.php"><button class="boton-encima">Ver tarifas</button></a>
         </div>
 
         <div class="fondo-gris">
@@ -35,7 +35,7 @@
                     <p>En nuestro tatami de deportes de contacto, que incluye <strong>Boxeo para adultos (tanto clases privadas grupales)</strong>, además de cuidarte físicamente, podrás divertirte a lo grande, superando todos tus límites.</p>
                     <hr>
                     <p>Entrena como todo un profesional, en nuestro <strong>club de boxeo Barcelona</strong>. A continuación, te indicamos más información de interés.</p>
-                    <a href="sobreNosotros.html"><button>Sobre nosotros</button></a>
+                    <a href="sobreNosotros.php"><button>Sobre nosotros</button></a>
                 </div>
                 <div class="image-section">
                     <img src="img/box.png" alt="Boxeo en Barcelona">
@@ -43,7 +43,7 @@
             </section>
         </div>
 
-        <a class="entrenadores" href="entrenadores.html">
+        <a class="entrenadores" href="entrenadores.php">
             <h1>Nuestros Mejores <span class="highlight">Entrenadores</span></h1>
         </a>
         <section class="container2">
@@ -79,7 +79,7 @@
                     <p><strong>Aprender boxeo cerca de Barcelona</strong>, ahora es muy sencillo. En nuestro gimnasio aprenderás todas las técnicas del boxeo, combinaciones y golpes.</p>
                     <p>¿Sabes que es un recto o directo, upper o gancho, jab, crochet o un golpe curvo? Aquí te lo enseñaremos.</p>
                     <p>Las clases de boxeo en Barcelona que ofrecemos, son muy efectivas y beneficiosas. Y es que el entrenamiento físico que significa boxear, te ayudará enormemente y podrás mejorar tu cuerpo y mente, mientras prácticas uno de los deportes más completos del mundo.</p>
-                    <a href="contacto.html"><button>Contáctanos</button></a>
+                    <a href="formulario_contacto.php"><button>Contáctanos</button></a>
                 </div>
             </section>
         </div>

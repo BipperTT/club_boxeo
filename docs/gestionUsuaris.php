@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Veure categories</title>
+    <link rel="stylesheet" href="styles/comun.css">
 </head>
 <header>
-    <div class="logo"> <a href="index.html"><img src="img/title.png"></a></div>
+    <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
     <?php
     include("includes/nav.php");
 ?>
