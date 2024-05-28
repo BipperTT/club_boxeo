@@ -5,7 +5,7 @@
     <title>Modificar Usuario</title>
     <link rel="stylesheet" href="styles/comun.css">
     <link rel="stylesheet" href="styles/modificarUsuario.css">
-
+    <link rel="icon" href="img/ico_nbg.png" type="image">
 
 
 </head>

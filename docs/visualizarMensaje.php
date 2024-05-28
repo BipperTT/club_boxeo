@@ -13,6 +13,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'entrenador') {
     <title>Veure categories</title>
     <link rel="stylesheet" href="styles/comun.css">
     <link rel="stylesheet" href="styles/gestionUsuaris.css">
+    <link rel="icon" href="img/ico_nbg.png" type="image">
 </head>
 <body>
 <header>
