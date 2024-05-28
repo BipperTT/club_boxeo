@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Veure categories</title>
     <link rel="stylesheet" href="styles/comun.css">
+    <link rel="stylesheet" href="styles/gestionUsuaris.css">
+
 </head>
 <header>
     <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
