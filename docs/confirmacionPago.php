@@ -6,6 +6,7 @@
     <title>Pago Confirmado</title>
     <link rel="stylesheet" href="styles/comun.css">
     <link rel="stylesheet" href="styles/confirmacionPago.css">
+    <link rel="icon" href="img/ico_nbg.png" type="image">
 </head>
 <body>
     <header>

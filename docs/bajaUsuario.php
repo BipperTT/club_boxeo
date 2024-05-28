@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Baja de Usuario</title>
+    <link rel="icon" href="img/ico_nbg.png" type="image">
 </head>
-<?php
+<header>
+        <div class="logo">
+            <a href="index.php"><img src="img/title.png" alt="Club Box Sogache Logo"></a>
+        </div>
+        <?php
     include("includes/nav.php");
 ?>
+    </header>
 <body>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
