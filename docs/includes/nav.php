@@ -29,7 +29,7 @@ session_start();
         <?php if(isset($_SESSION['email'])): ?>
             <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'Entrenador'): ?>
                 <li><a href="../docs/gestionUsuaris.php">Gestión Usuarios</a></li>
-                <li><a href="../api/visualizarMensaje.php">Comentarios</a></li>
+                <li><a href="../docs/visualizarMensaje.php">Comentarios</a></li>
             <?php endif; ?>
             <li><a href="../api/logOut.php">Cerrar Sesión</a></li>
         <?php else: ?>
