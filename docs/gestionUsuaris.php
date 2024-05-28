@@ -14,6 +14,7 @@
 ?>
 </header>
 <body>
+    <main>
     <h1>Personas</h1>
     <table>
         <thead>
@@ -37,6 +38,7 @@
             </tr>
         </tfoot>
     </table>
+</main>
     <script>
         fetch('../api/gestioUsuaris.php')
             .then(response => response.json())
