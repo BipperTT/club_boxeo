@@ -18,6 +18,8 @@ if (mysqli_num_rows($result) > 0) {
     
     $_SESSION['email'] = $fila['email'];
     $_SESSION['tipo'] = $fila['tipo'];
+    $_SESSION['id_usuario'] = $fila['ID'];
+
 
     if ($_SESSION['tipo'] == 'entrenador') {
         header('Location: ../docs/gestionUsuaris.php');

@@ -3,11 +3,11 @@ include('connexio.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
-    $duracion = (int)$data['duracion'];
-    $precio = (float)$data['precio'];
-    $id_usuario = (int)$data['id_usuario'];
+    $duracion = $data['duracion'];
+    $precio = $data['precio'];
+    $id_usuario = $data['id_usuario'];
     
-    $query = "INSERT INTO Tarifa (Duracion, fecha_alta, Precio, ID_usuario) VALUES ('$duracion', NOW(), '$precio', '$id_usuario')";
+    $query = "INSERT INTO Grupal (ID_entrenador, dia_semana, hora_inicio, hora_final) VALUES ('$duracion', NOW(), '$precio', '$id_usuario')";
     
     if (mysqli_query($conn, $query)) {
         $response = array('status' => 'success');

@@ -1,12 +1,15 @@
 <?php
 session_start();
 
+if (isset($id_usuario)) {
+    $_SESSION['id_usuario'] = $id_usuario;
+}
+
 if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
     $contratable = true;
 } else {
     $contratable = false;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">

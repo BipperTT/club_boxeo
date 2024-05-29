@@ -79,7 +79,7 @@
                         form.reset();
                         alert('Usuario creado exitosamente');
                     } else {
-                        window.location.href = '../api/gestioUsuaris.php';
+                        window.location.href = 'gestionUsuaris.php';
                     }
                 })
         });
