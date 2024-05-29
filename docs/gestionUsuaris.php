@@ -62,6 +62,7 @@
                 });
             });
     </script>
+    <script src="js/scripts.js"></script>
        <?php
     include("includes/footer.php");
 ?>

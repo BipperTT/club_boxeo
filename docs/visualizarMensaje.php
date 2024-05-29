@@ -52,6 +52,7 @@
             .catch(error => console.error('Error al obtener mensajes:', error));
     };
 </script>
+<script src="js/scripts.js"></script>
 
 <?php include("includes/footer.php"); ?>
 </body>
