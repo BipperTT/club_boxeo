@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Baja de Usuario</title>
     <link rel="icon" href="img/ico_nbg.png" type="image">
+    <link rel="stylesheet" href="styles/comun.css">
 </head>
 <header>
         <div class="logo">
@@ -14,6 +15,9 @@
 ?>
     </header>
 <body>
+
+    <img src="img/ico_nbg_black.png">
+
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const userId = urlParams.get('id');
