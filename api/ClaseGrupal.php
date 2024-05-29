@@ -3,7 +3,7 @@ include('connexio.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
-    $duracion = $data['duracion'];
+    $idEntrenador = $data['duracion'];
     $precio = $data['precio'];
     $id_usuario = $data['id_usuario'];
     
