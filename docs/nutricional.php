@@ -31,8 +31,14 @@
             </article>
             <article class="noticia">
                 <h1>¿Cuándo debe comer un boxeador?</h1>
-                <img src="img/cuatrocomidas.png">
+                <img class="img-nbg" src="img/cuatrocomidas.png">
                 <p>La rutina alimenticia de un boxeador incluye al menos cuatro comidas: desayuno, almuerzo, comida y cena.</p>
+            </article>
+            <article class="noticia">
+                <h1>'Weight cut', el extremo (y mortal) método para perder peso en horas que alerta al boxeo y las MMA</h1>
+                <img src="img/cortedepeso.png">
+                <p>Dar el peso en la balanza es uno de los asuntos que más preocupación causa en los boxeados y peleadores de MMA y otras disciplinas de contacto.</p>
+                <p> El objetivo es perder mucho peso en un espacio corto de tiempo. Para ello se dejan de consumir carbohidratos -el cuerpo pierde el glucógeno almacenado en los músculos, perdiendo así agua-, se consumen alrededor de 10 litros de agua diariamente y se deja de tomar un día antes del pesaje.</p>
             </article>
         </section>
     </main>
