@@ -33,7 +33,7 @@
     fetch('../api/verResultadosTorneos.php')
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Agrega esta línea para depurar
+            console.log(data);
             const resultadosTable = document.getElementById('resultados-table');
             data.forEach(resultados => {
                 const row = document.createElement('tr');

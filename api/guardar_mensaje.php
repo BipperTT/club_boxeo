@@ -19,9 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = mysqli_real_escape_string($conn, $data['email']);
         $telefono = mysqli_real_escape_string($conn, $data['telefono']);
         $mensaje = mysqli_real_escape_string($conn, $data['mensaje']);
-        $fechaEnvio = mysqli_real_escape_string($conn, $data['fecha_envio']);
         
-        $query = "INSERT INTO Mensaje (nombre, email, telefono, mensaje) VALUES ('$nombre', '$email', '$telefono', '$mensaje', '$fechaEnvio')";
+        $query = "INSERT INTO Mensaje (nombre, email, telefono, mensaje) VALUES ('$nombre', '$email', '$telefono', '$mensaje')";
         $result = mysqli_query($conn, $query);
 
         if ($result) {
@@ -62,4 +61,3 @@ echo json_encode($response);
 
 
 ?>
-

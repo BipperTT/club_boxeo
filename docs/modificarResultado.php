@@ -27,7 +27,7 @@
         <label for="combates_ganados">Combates Ganados:</label>
         <input type="number" id="combates_ganados" name="combates_ganados" required><br>
         
-        <label for="fecha_combate">Fecha Combate:</label>
+        <label for="fecha_combate">Ultima Fecha Combate:</label>
         <input type="date" id="fecha_combate" name="fecha_combate" required><br>
         
         <button type="submit">Guardar</button>
@@ -37,7 +37,7 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const resultadoId = urlParams.get('id');
-    fetch(`../api/verResultadosTorneo.php?ID=${resultadoId}`, {
+    fetch(`../api/verResultadosTorneos.php?ID=${resultadoId}`, {
         method: 'GET'
     })
     .then(response => response.json())
@@ -74,7 +74,7 @@
             Porcentaje_Ganados: porcentaje_ganados
         };
 
-        fetch(`../api/verResultadosTorneo.php?ID=${resultadoId}`, {
+        fetch(`../api/verResultadosTorneos.php?ID=${resultadoId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
