@@ -49,7 +49,6 @@
     </form>
 </main>    
 
-    <!-- Carga de los datos del usuario en el formulario -->
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const userId = urlParams.get('ID');
@@ -72,7 +71,6 @@
         .catch(error => console.error('Error al cargar los datos del usuario:', error));
     </script>
 
-    <!-- Control del envío de los nuevos datos del usuario -->
     <script>
         const form = document.getElementById('usuario-form');
         form.addEventListener('submit', (event) => {
