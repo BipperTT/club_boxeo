@@ -35,4 +35,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo json_encode($response);
     exit;
 }
+
+include("connexio.php"); 
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['id'])) {
+    $id = intval($_GET['id']); 
+    $query = "DELETE FROM Mensaje WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('i', $id);
+    
+    if ($stmt->execute()) {
+        $response = array('status' => 'success');
+    } else {
+        $response = array('status' => 'error', 'message' => 'Error al eliminar el mensaje.');
+    }
+    
+    $stmt->close();
+    $conn->close();
+} else {
+    $response = array('status' => 'error', 'message' => 'Solicitud inválida.');
+}
+
+header('Content-Type: application/json');
+echo json_encode($response);
+
+
 ?>
+
