@@ -5,6 +5,7 @@
     <title>Baja de Usuario</title>
     <link rel="icon" href="img/ico_nbg.png" type="image">
     <link rel="stylesheet" href="styles/comun.css">
+    <link rel="stylesheet" href="styles/eliminarComentario.css">
 </head>
 <header>
         <div class="logo">
@@ -15,8 +16,9 @@
 ?>
     </header>
 <body>
-
-    <img src="img/ico_nbg_black.png">
+    <main>
+      <img src="img/ico_nbg_black.png">
+    </main>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -38,6 +40,7 @@
                 console.error('Error al eliminar el usuario:', error);
             });
     </script>
+    <script src="js/scripts.js"></script>
       <?php
     include("includes/footer.php");
 ?>
