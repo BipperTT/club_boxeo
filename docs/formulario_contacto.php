@@ -28,7 +28,6 @@
                     <textarea name="message" id="mensaje" placeholder="Mensaje" required></textarea>
                     <button type="submit">Enviar</button>
                 </form>
-                <p class="contact-info">Responderemos a tus dudas de inmediato por número de teléfono o email.</p>
                 <div id="error-messages" style="color: red;"></div>
             </div>
         </section>
