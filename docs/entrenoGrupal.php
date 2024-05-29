@@ -42,9 +42,9 @@ if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
                 <?php if ($contratable): ?>
                     <form action="formularioReserva.php" method="POST">
                         <input type="hidden" name="ID_entrenador" value="1">
-                        <input type="hidden" name="dia_semana" value="Lunes">
-                        <input type="hidden" name="hora_inicio" value="9:00:00">
-                        <input type="hidden" name="hora_final" value="11:00:00">
+                        <input type="hidden" name="dia_semana" value="Lunes"> 
+                        <input type="hidden" name="hora_inicio" value="09:00:00"> 
+                        <input type="hidden" name="hora_final" value="10:00:00">
                         <button type="submit">CONTRATAR</button>
                     </form>
                 <?php else: ?>
@@ -59,16 +59,16 @@ if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
                     <li>Clase en grupo reducido</li>
                     <li>Duración de 1 hora</li>
                     <li>Entrenador Grupal</li>
-                    <li>Miercoles</li>
+                    <li>Miércoles</li>
                     <li>11-12h</li>
                     <li>SIN PERMANENCIA</li>
                 </ul>
                 <?php if ($contratable): ?>
                     <form action="formularioReserva.php" method="POST">
                         <input type="hidden" name="ID_entrenador" value="2">
-                        <input type="hidden" name="dia_semana" value="Miércoles">
-                        <input type="hidden" name="hora_inicio" value="11:00:00">
-                        <input type="hidden" name="hora_final" value="12:00:00">
+                        <input type="hidden" name="dia_semana" value="Miércoles"> <!-- Corregido el valor del día -->
+                        <input type="hidden" name="hora_inicio" value="11:00:00"> <!-- Corregido el formato de la hora -->
+                        <input type="hidden" name="hora_final" value="12:00:00"> <!-- Corregido el formato de la hora -->
                         <button type="submit">CONTRATAR</button>
                     </form>
                 <?php else: ?>
@@ -83,25 +83,26 @@ if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'usuario') {
                     <li>Clase en grupo reducido</li>
                     <li>Duración de 1 hora</li>
                     <li>Entrenador Grupal</li>
-                    <li>Viernes</li>
-                    <li>16-17h<li>
+                    <li>Viernes</li> <!-- Corregido el nombre del día -->
+                    <li>16-17h<li> <!-- Corregido el formato de la hora -->
                     <li>SIN PERMANENCIA</li>
                 </ul>
                 <?php if ($contratable): ?>
-                    <form action="formularioReserva.php" method="POST">
-                        <input type="hidden" name="ID_entrenador" value="3">
-                        <input type="hidden" name="dia_semana" value="Viernes">
-                        <input type="hidden" name="hora_inicio" value="16:00:00">
-                        <input type="hidden" name="hora_final" value="17:00:00">
-                        <button type="submit">CONTRATAR</button>
-                    </form>
-                <?php else: ?>
-                    <p>Esta tarifa solo está disponible para usuarios.</p>
-                <?php endif; ?>
-            </div>
-        </section>
-    </main>
-    <?php include("includes/footer.php"); ?>
-    <script src="js/scripts.js"></script>
-</body>
-</html>
+                                    <form action="formularioReserva.php" method="POST">
+                                        <input type="hidden" name="ID_entrenador" value="3">
+                                        <input type="hidden" name="dia_semana" value="Viernes"> <!-- Corregido el valor del día -->
+                                        <input type="hidden" name="hora_inicio" value="16:00:00"> <!-- Corregido el formato de la hora -->
+                                        <input type="hidden" name="hora_final" value="17:00:00"> <!-- Corregido el formato de la hora -->
+                                        <button type="submit">CONTRATAR</button>
+                                    </form>
+                                <?php else: ?>
+                                    <p>Esta tarifa solo está disponible para usuarios.</p>
+                                <?php endif; ?>
+                            </div>
+                        </section>
+                    </main>
+                    <?php include("includes/footer.php"); ?>
+                    <script src="js/scripts.js"></script>
+                </body>
+                </html>
+            

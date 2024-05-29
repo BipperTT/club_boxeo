@@ -13,7 +13,7 @@ session_start();
             <a href="javascript:void(0)" class="dropbtn">Precios</a>
             <div class="dropdown-content">
                 <a href="tarifa.php">Tarifas</a>
-                <a href="entrenoGrupal.php">Entreno Privado</a>
+                <a href="entrenoGrupal.php">Entreno Grupal</a>
             </div>
         </li>
         <li><a href="entrenadores.php">Entrenadores</a></li>
