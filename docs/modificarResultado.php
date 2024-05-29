@@ -37,7 +37,7 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const resultadoId = urlParams.get('id');
-    fetch(`../api/verResultadosTorneos.php?ID=${resultadoId}`, {
+    fetch(`../api/verResultadosTorneo.php?id=${resultadoId}`, {
         method: 'GET'
     })
     .then(response => response.json())
@@ -74,7 +74,7 @@
             Porcentaje_Ganados: porcentaje_ganados
         };
 
-        fetch(`../api/verResultadosTorneos.php?ID=${resultadoId}`, {
+        fetch(`../api/verResultadosTorneo.php?id=${resultadoId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -97,6 +97,7 @@
         });
     });
 </script>
+<script src="js/scripts.js"></script>
 <?php include("includes/footer.php"); ?>
 </body>
 </html>

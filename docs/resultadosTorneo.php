@@ -30,7 +30,7 @@
 </main>
 <script>
   window.onload = function() {
-    fetch('../api/verResultadosTorneos.php')
+    fetch('../api/verResultadosTorneo.php')
         .then(response => response.json())
         .then(data => {
             console.log(data);
