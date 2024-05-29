@@ -30,6 +30,11 @@
                 <p>Es un reconocimiento a su afición por este deporte y a su ennoblecimiento del mismo a través de crónicas que se han convertido en auténticas leyendas del periodismo", según han informado desde la Fundación</p>
             </article>
             <article class="noticia">
+                <h1>Boxeo en las venas: el sobrino de Kiko Martínez, a por París</h1>
+                <img src="img/sobrinokiko.png">
+                <p>Sergio Martínez busca su pase para los Juegos en el Preolímpico de Tailandia que se disputará del 24 de mayo al 2 de junio. “Él me enseña de la vida”. Con mucho esfuerzo y dedicación, Martínez se unió a la Selección española de boxeo, en la que es el representante de la categoría de -71 kilos.</p>
+            </article>
+            <article class="noticia">
                 <h1>El boxeador Juanito Pastor, 100 años del primer deportista de Alicante en unos Juegos Olímpicos</h1>
                 <img src="img/pastor.jpeg">
                 <p>El púgil compitió en París en 1924, sirviendo de ejemplo para los alicantinos que vayan a las Olimpiadas de Francia este verano un siglo después.</p>
