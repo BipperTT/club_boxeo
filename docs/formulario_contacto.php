@@ -29,6 +29,7 @@
                     <button type="submit">Enviar</button>
                 </form>
                 <div id="error-messages" style="color: red;"></div>
+                <p class="contact-info">Responderemos a tus dudas de inmediato por número de teléfono o email.</p>
             </div>
         </section>
     </main>
