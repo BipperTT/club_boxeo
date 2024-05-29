@@ -1,0 +1,19 @@
+main {
+
+    justify-content: center;
+    padding-top: 200px;
+
+}
+
+
+@media (max-width: 768px) { 
+
+    main img {
+
+        height: 300px;
+        width: auto;
+
+    }
+
+
+}

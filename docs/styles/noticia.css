@@ -1,7 +1,7 @@
 main {
     padding: 20px;
-    padding-top: 1100px;
-    padding-bottom: 1000px;
+    padding-top: 1600px;
+    padding-bottom: 1500px;
 }
 
 .noticias {
@@ -19,14 +19,20 @@ main {
     margin: 20px 0;
     padding: 20px;
     width: 50%;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
+    border-radius: 5px;
 
 }
+
 
 .noticia img {
     max-width: 100%;
     width: 800px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
+
 
 
 @media (max-width: 768px) {
@@ -37,8 +43,8 @@ main {
 
     main {
         padding: 20px;
-        padding-top: 850px;
-        padding-bottom: 800px;
+        padding-top: 1150px;
+        padding-bottom: 1100px;
     }
     
 

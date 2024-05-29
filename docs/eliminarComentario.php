@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Baja de Usuario</title>
     <link rel="icon" href="img/ico_nbg.png" type="image">
+    <link rel="stylesheet" href="styles/comun.css">
+    <link rel="stylesheet" href="styles/eliminarComentario.css">
 </head>
 <header>
         <div class="logo">
@@ -14,17 +16,21 @@
 ?>
     </header>
 <body>
+    <main>
+      <img src="img/ico_nbg_black.png">
+    </main>
+
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const userId = urlParams.get('ID');
-        fetch(`../api/gestioUsuaris.php?ID=${userId}`,{
+        const userId = urlParams.get('id');
+        fetch(`../api/guardar_mensaje.php?id=${userId}`,{
             method: 'DELETE'                
         })
             .then(response => response.json())
             .then(data => {
                 if (data.status == 'success') {
                     alert('Usuario eliminado exitosamente');
-                    self.location.href='gestionUsuaris.php';
+                    self.location.href='visualizarMensaje.php';
                 } else {
                     alert('Se ha producido un error al eliminar el usuario');
                 }

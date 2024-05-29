@@ -28,21 +28,51 @@
                     <textarea name="message" id="mensaje" placeholder="Mensaje" required></textarea>
                     <button type="submit">Enviar</button>
                 </form>
+                <div id="error-messages" style="color: red;"></div>
+                <p class="contact-info">Responderemos a tus dudas de inmediato por número de teléfono o email.</p>
             </div>
         </section>
     </main>
     <?php include("includes/footer.php"); ?>
-    <script src="js/scripts.js"></script>
     <script>
         const form = document.getElementById('contact-form');
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             
-            const nombre = document.getElementById('nom').value;
-            const email = document.getElementById('email').value;
-            const telefono = document.getElementById('telefono').value;
-            const mensaje = document.getElementById('mensaje').value;
+            const errorMessages = document.getElementById('error-messages');
+            errorMessages.innerHTML = '';
             
+            const nombre = document.getElementById('nom').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+            
+            let errors = [];
+
+            if (nombre === '') {
+                errors.push('El nombre es obligatorio.');
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailPattern.test(email)) {
+                errors.push('Por favor, introduce un correo electrónico válido.');
+            }
+
+            const telefonoPattern = /^\d{9}$/; 
+            if (telefono === '' || !telefonoPattern.test(telefono)) {
+                errors.push('Por favor, introduce un número de teléfono válido de 9 dígitos.');
+            }
+
+
+            if (mensaje === '') {
+                errors.push('El mensaje es obligatorio.');
+            }
+
+            if (errors.length > 0) {
+                errorMessages.innerHTML = errors.join('<br>');
+                return;
+            }
+
             const data = {
                 nombre: nombre,
                 email: email,
@@ -73,5 +103,6 @@
             });
         });
     </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

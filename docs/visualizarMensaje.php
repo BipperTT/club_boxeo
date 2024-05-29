@@ -14,18 +14,17 @@
 <main>
     <h1>Mensajes</h1>
     <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Mensaje</th>
-                <th>Fecha Envio</th>
-                <th>Respuesta</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Mensaje</th>
+            <th>Fecha Envio</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
         <tbody id="mensaje-table">
         </tbody>
     </table>
@@ -45,8 +44,7 @@
                         <td>${mensaje.telefono}</td>
                         <td>${mensaje.mensaje}</td>
                         <td>${mensaje.fecha_envio}</td>
-                        <td>${mensaje.respuesta}</td>
-                        <td><a href="enviar_respuesta.php?id=${mensaje.id}">Responder</a></td>
+                        <td><a href='eliminarComentario.php?id=${mensaje.id}'>Eliminar</a></td>
                     `;
                     mensajeTable.appendChild(row);
                 });
@@ -54,6 +52,8 @@
             .catch(error => console.error('Error al obtener mensajes:', error));
     };
 </script>
+<script src="js/scripts.js"></script>
+
 <?php include("includes/footer.php"); ?>
 </body>
 </html>
