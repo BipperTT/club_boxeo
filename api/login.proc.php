@@ -2,24 +2,17 @@
 session_start();
 include("connexio.php");
 
-$email = $_REQUEST['email'];
-$password = $_REQUEST['password'];
-
-
-echo "Email: " . $email . "<br>";
-echo "Password: " . $password . "<br>";
+$email = $_POST['email'];
+$password = $_POST['password'];
 
 $sql = "SELECT * FROM Persona WHERE email='$email' AND contraseña='$password'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-
     $fila = mysqli_fetch_array($result);
-    
+    $_SESSION['id_usuario'] = $fila['ID'];
     $_SESSION['email'] = $fila['email'];
     $_SESSION['tipo'] = $fila['tipo'];
-    $_SESSION['id_usuario'] = $fila['ID'];
-
 
     if ($_SESSION['tipo'] == 'entrenador') {
         header('Location: ../docs/gestionUsuaris.php');
