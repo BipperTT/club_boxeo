@@ -25,7 +25,9 @@ session_start();
             </div>
         </li>
         <li><a href="sobreNosotros.php">Sobre Nosotros</a></li>
-        <li><a href="formulario_contacto.php">Contacto</a></li>
+        <?php if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'entrenador'): ?>
+            <li><a href="formulario_contacto.php">Contacto</a></li>
+        <?php endif; ?>
         <?php if(isset($_SESSION['email'])): ?>
             <li><a href="../docs/resultadosTorneo.php">Resultados Torneo</a></li>
             <?php if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'entrenador'): ?>
