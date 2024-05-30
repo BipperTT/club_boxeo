@@ -78,8 +78,9 @@
                     if (data.status === 'success') {
                         form.reset();
                         alert('Usuario creado exitosamente');
-                    } else {
                         window.location.href = 'gestionUsuaris.php';
+                    } else {
+                        alert('Error al crear el usuario');
                     }
                 })
         });
