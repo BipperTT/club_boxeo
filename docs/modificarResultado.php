@@ -36,7 +36,7 @@
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const resultadoId = urlParams.get('id');
+    const resultadoId = urlParams.get('ID');
     fetch(`../api/verResultadosTorneo.php?id=${resultadoId}`, {
         method: 'GET'
     })

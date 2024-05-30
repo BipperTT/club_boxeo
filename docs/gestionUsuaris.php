@@ -26,7 +26,6 @@
                 <th>Email</th>
                 <th>Contraseña</th>
                 <th>Tipo</th>
-                <th>Ha Pagado</th>
                 <th colspan="2">Operaciones</th>
             </tr>
         </thead>
@@ -54,7 +53,6 @@
                         <td>${persona.email}</td>
                         <td>${persona.contraseña}</td>
                         <td>${persona.tipo}</td>
-                        <td>${persona.ha_pagado}</td>
                         <td><a href='modificarUsuario.php?ID=${persona.ID}'>Modificar</a></td>
                         <td><a href='bajaUsuario.php?ID=${persona.ID}'>Eliminar</a></td>
                     `;

@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location:confirmacionReserva.php');
             exit; 
         } else {
-            echo 'Hubo un error al contratar la tarifa: ' . $responseData['error'];
+            echo 'Hubo un error al reservar la clase: ' . $responseData['error'];
         }
     } else {
         echo 'No se pudo obtener el ID del usuario de la sesión.';
