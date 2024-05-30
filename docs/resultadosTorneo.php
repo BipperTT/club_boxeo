@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +14,7 @@
     <div class="logo"> <a href="index.php"><img src="img/title.png"></a></div>
     <?php include("includes/nav.php"); ?>
 </header>
-<main>
+<main data-role="<?php echo isset($_SESSION['tipo']) ? $_SESSION['tipo'] : ''; ?>">
     <h1>ULTIMOS RESULTADOS</h1>
     <table>
         <thead>
@@ -19,9 +22,11 @@
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Combates Realizados</th>
-                <th>Combates ganados</th>
+                <th>Combates Ganados</th>
                 <th>Fecha Combate</th>
                 <th>Porcentaje Ganados</th>
+                <th>Añadir</th>
+                <th>Modificar</th>
             </tr>
         </thead>
         <tbody id="resultados-table">
@@ -29,30 +34,28 @@
     </table>
 </main>
 <script>
-  window.onload = function() {
+window.onload = function() {
+    const userRole = document.querySelector('main').getAttribute('data-role');
     fetch('../api/verResultadosTorneo.php')
         .then(response => response.json())
         .then(data => {
             console.log(data);
             const resultadosTable = document.getElementById('resultados-table');
-            data.forEach(resultados => {
+            data.forEach(result => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${resultados.Nombre}</td>
-                    <td>${resultados.Apellidos}</td>
-                    <td>${resultados.Combates_Realizados}</td>
-                    <td>${resultados.Combates_Ganados}</td>
-                    <td>${resultados.Fecha_Combate}</td>
-                    <td>${resultados.Porcentaje_Ganados}</td>
-                    <td><a href='añadirResultado.php?ID=${resultados.id}'>Añadir Nuevo Ganador</a></td>
-                    <td><a href='modificarResultado.php?ID=${resultados.id}'>Modificar Resultados</a></td>
+                    <td>${result.Nombre}</td>
+                    <td>${result.Apellidos}</td>
+                    <td>${result.Combates_Realizados}</td>
+                    <td>${result.Combates_Ganados}</td>
+                    <td>${result.Fecha_Combate}</td>
+                    <td>${result.Porcentaje_Ganados}</td>
+                    ${userRole === 'entrenador' ? `<td><a href='añadirResultado.php?ID=${result.id}'>Añadir Nuevo Ganador</a></td><td><a href='modificarResultado.php?ID=${result.id}'>Modificar Resultados</a></td>` : '<td>(No disponible)</td><td>(No disponible)</td>'}
                 `;
                 resultadosTable.appendChild(row);
             });
         });
 };
-
-
 </script>
 <script src="js/scripts.js"></script>
 <?php include("includes/footer.php"); ?>

@@ -21,7 +21,6 @@
             <th>Email</th>
             <th>Teléfono</th>
             <th>Mensaje</th>
-            <th>Fecha Envio</th>
             <th>Eliminar</th>
         </tr>
     </thead>
@@ -43,7 +42,6 @@
                         <td>${mensaje.email}</td>
                         <td>${mensaje.telefono}</td>
                         <td>${mensaje.mensaje}</td>
-                        <td>${mensaje.fecha_envio}</td>
                         <td><a href='eliminarComentario.php?id=${mensaje.id}'>Eliminar</a></td>
                     `;
                     mensajeTable.appendChild(row);
