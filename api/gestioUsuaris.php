@@ -21,9 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT' && isset($_GET['ID'])) {
     $email = $data['email'];
     $contraseña = $data['contraseña'];
     $tipo = $data['tipo'];
-    $ha_pagado = $data['ha_pagado'];
 
-    $result = mysqli_query($conn, "UPDATE Persona SET nombre='$nombre', apellido1='$apellido1', telefono='$telefono', email='$email', contraseña='$contraseña', tipo='$tipo', ha_pagado='$ha_pagado' WHERE ID=$id");
+    $result = mysqli_query($conn, "UPDATE Persona SET nombre='$nombre', apellido1='$apellido1', telefono='$telefono', email='$email', contraseña='$contraseña', tipo='$tipo' WHERE ID=$id");
     if ($result) {
         $response = array('status' => 'success');
     } else {
@@ -35,12 +34,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT' && isset($_GET['ID'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE' && isset($_GET['ID'])) {
     $id = $_GET['ID'];
-    $result = mysqli_query($conn, "DELETE FROM Persona WHERE ID=$id");
-    if ($result) {
-        $response = array('status' => 'success');
+    
+    // Delete record from Usuario table
+    $result_usuario = mysqli_query($conn, "DELETE FROM Usuario WHERE ID_usuario=$id");
+    
+    // Check if record was successfully deleted from Usuario table
+    if ($result_usuario) {
+        // Delete record from Persona table
+        $result_persona = mysqli_query($conn, "DELETE FROM Persona WHERE ID=$id");
+        
+        // Check if record was successfully deleted from Persona table
+        if ($result_persona) {
+            $response = array('status' => 'success');
+        } else {
+            $response = array('status' => 'error', 'message' => 'Error deleting record from Persona table');
+        }
     } else {
-        $response = array('status' => 'error');
+        $response = array('status' => 'error', 'message' => 'Error deleting record from Usuario table');
     }
+    
     header('Content-Type: application/json');
     echo json_encode($response);
 }
@@ -54,9 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $data['email'];
     $contraseña = $data['contraseña'];
     $tipo = $data['tipo'];
-    $ha_pagado = isset($data['ha_pagado']) ? $data['ha_pagado'] : '0';
 
-    $result = mysqli_query($conn, "INSERT INTO Persona (nombre, apellido1, telefono, email, contraseña, tipo, ha_pagado) VALUES ('$nombre', '$apellido1', '$telefono', '$email', '$contraseña', '$tipo', '$ha_pagado')");
+    $result = mysqli_query($conn, "INSERT INTO Persona (nombre, apellido1, telefono, email, contraseña, tipo) VALUES ('$nombre', '$apellido1', '$telefono', '$email', '$contraseña', '$tipo')");
     
     if ($result) {
         $persona_id = mysqli_insert_id($conn);
