@@ -8,16 +8,13 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $password = $_POST['password'];
 
-// Insertar en la tabla Persona
-$sql_persona = "INSERT INTO Persona (nombre, apellido1, telefono, email, contraseña, tipo, ha_pagado) 
-                VALUES ('$first_name', '$last_name', '$phone', '$email', '$password', 'usuario', 'no')";
+$sql_persona = "INSERT INTO Persona (nombre, apellido1, telefono, email, contraseña, tipo) 
+                VALUES ('$first_name', '$last_name', '$phone', '$email', '$password', 'usuario')";
 $result_persona = mysqli_query($conn, $sql_persona);
 
 if ($result_persona) {
-    // Obtener el ID generado para la persona
     $persona_id = mysqli_insert_id($conn);
     
-    // Insertar en la tabla Usuario
     $sql_usuario = "INSERT INTO Usuario (ID_usuario) VALUES ('$persona_id')";
     $result_usuario = mysqli_query($conn, $sql_usuario);
     
@@ -26,7 +23,6 @@ if ($result_persona) {
         $_SESSION['email'] = $email;
         $_SESSION['tipo'] = 'usuario';
         
-        // Redireccionar a la página correspondiente
         header('Location: ../docs/index.php');
         exit();
     } else {

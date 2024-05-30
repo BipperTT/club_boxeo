@@ -9,9 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $query = "INSERT INTO Tarifa (Duracion, fecha_alta, Precio, ID_usuario) VALUES ('$duracion', NOW(), '$precio', '$id_usuario')";
     
-    // Debugging: print query to error log
-    error_log("Query: " . $query);
-    
     if (mysqli_query($conn, $query)) {
         $response = array('status' => 'success');
         header('Content-Type: application/json');
