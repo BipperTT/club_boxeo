@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location:confirmacionPago.php');
     } else {
         echo 'Hubo un error al contratar la tarifa: ' . $responseData['error'];
+        header('location:index.php');
     }
 }
 ?>

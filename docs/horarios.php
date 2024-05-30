@@ -18,7 +18,7 @@
 
     <main>
         <img src="img/horario.png" alt="horario" class="clasimage">
-        <a href="tarifa.php"><button class="boton-encima">Ver tarifas</button></a>
+        <a href="entrenoGrupal.php"><button class="boton-encima">Reservar Entreno</button></a>
     </main>
     <?php
     include("includes/footer.php");

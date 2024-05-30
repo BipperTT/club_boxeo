@@ -97,6 +97,7 @@
                 if (data.status == 'success') {
                     form.reset();
                     alert('Usuario modificado exitosamente');
+                    window.location.href = 'gestionUsuaris.php';
                 } else {
                     alert('Se ha producido un error al modificar el usuario');
                 }

@@ -15,7 +15,7 @@ session_start();
     <?php include("includes/nav.php"); ?>
 </header>
 <main data-role="<?php echo isset($_SESSION['tipo']) ? $_SESSION['tipo'] : ''; ?>">
-    <h1>ULTIMOS RESULTADOS</h1>
+    <h1>RANKING USUARIOS</h1>
     <table>
         <thead>
             <tr>
@@ -26,7 +26,6 @@ session_start();
                 <th>Combates Ganados</th>
                 <th>Fecha Combate</th>
                 <th>Porcentaje Ganados</th>
-                <th>Añadir</th>
                 <th>Modificar</th>
             </tr>
         </thead>
@@ -51,8 +50,8 @@ window.onload = function() {
                     <td>${result.Combates_Realizados}</td>
                     <td>${result.Combates_Ganados}</td>
                     <td>${result.Fecha_Combate}</td>
-                    <td>${result.Porcentaje_Ganados}</td>
-                    ${userRole === 'entrenador' ? `<td><a href='añadirResultado.php?ID=${result.id}'>Añadir Nuevo Ganador</a></td><td><a href='modificarResultado.php?ID=${result.id}'>Modificar Resultados</a></td>` : '<td>(No disponible)</td><td>(No disponible)</td>'}
+                    <td>${result.Porcentaje_Ganados}%</td>
+                    ${userRole === 'entrenador' ? `<td><a href='modificarResultado.php?ID=${result.id}'>Modificar Resultados</a></td>` : '<td>(No disponible)</td>'}
                 `;
                 resultadosTable.appendChild(row);
             });

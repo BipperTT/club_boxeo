@@ -3,7 +3,7 @@
 include("connexio.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $result = mysqli_query($conn, "SELECT * FROM Resultados");
+    $result = mysqli_query($conn, "SELECT * FROM Resultados ORDER BY Porcentaje_Ganados DESC");
     $personas = array();
     while ($row = mysqli_fetch_assoc($result)) {
         $personas[] = $row;

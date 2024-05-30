@@ -87,6 +87,7 @@
             if (data.status == 'success') {
                 form.reset();
                 alert('Resultado modificado exitosamente');
+                window.location.href = 'resultadosTorneo.php';
             } else {
                 alert('Se ha producido un error al modificar el resultado');
             }

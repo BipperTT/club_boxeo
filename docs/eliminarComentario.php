@@ -28,7 +28,7 @@
         })
             .then(response => response.json())
             .then(data => {
-                if (data.status == 'success') {
+                if (data.status == 'success') { 
                     alert('Comentario eliminado exitosamente');
                     self.location.href='visualizarMensaje.php';
                 } else {
