@@ -35,7 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT' && isset($_GET['ID'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE' && isset($_GET['ID'])) {
     $id = $_GET['ID'];
     
+    // Eliminar el usuario de la tabla Usuario
     $result_usuario = mysqli_query($conn, "DELETE FROM Usuario WHERE ID_usuario=$id");
+    
+    // Si la eliminación en la tabla Usuario fue exitosa, proceder con la eliminación en la tabla Persona
     if ($result_usuario) {
         $result_persona = mysqli_query($conn, "DELETE FROM Persona WHERE ID=$id");
         
@@ -51,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE' && isset($_GET['ID'])) {
     header('Content-Type: application/json');
     echo json_encode($response);
 }
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);

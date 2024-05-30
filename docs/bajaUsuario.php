@@ -20,25 +20,26 @@
       <img src="img/ico_nbg_black.png">
     </main>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const userId = urlParams.get('ID');
-        fetch(`../api/gestioUsuaris.php?ID=${userId}`,{
-            method: 'DELETE'                
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status == 'success') {
-                    alert('Usuario eliminado exitosamente');
-                    self.location.href='gestionUsuaris.php';
-                } else {
-                    alert('Se ha producido un error al eliminar el usuario');
-                }
-            })
-            .catch(error => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('ID');
+    fetch(`../api/gestioUsuaris.php?ID=${userId}`, {
+        method: 'DELETE'                
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status == 'success') {
+                alert('Usuario eliminado exitosamente');
+                self.location.href = 'gestionUsuaris.php';
+            } else {
                 alert('Se ha producido un error al eliminar el usuario');
-                console.error('Error al eliminar el usuario:', error);
-            });
-    </script>
+            }
+        })
+        .catch(error => {
+            alert('Se ha producido un error al eliminar el usuario');
+            console.error('Error al eliminar el usuario:', error);
+        });
+</script>
+
     <script src="js/scripts.js"></script>
       <?php
     include("includes/footer.php");

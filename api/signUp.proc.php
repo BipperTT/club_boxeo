@@ -14,7 +14,6 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) ||
     exit();
 }
 
-
 if ($password !== $confirm_password) {
     echo 'Las contraseñas no coinciden.';
     exit();
@@ -39,11 +38,7 @@ if ($result_persona) {
     $result_usuario = mysqli_query($conn, $sql_usuario);
     
     if ($result_usuario) {
-        $_SESSION['id_usuario'] = $persona_id;
-        $_SESSION['email'] = $email;
-        $_SESSION['tipo'] = 'usuario';
-        
-        header('Location: ../docs/index.php');
+        header('Location: ../docs/iniciarSesion.php');
         exit();
     } else {
         echo 'Error al insertar en la tabla Usuario: ' . mysqli_error($conn);
