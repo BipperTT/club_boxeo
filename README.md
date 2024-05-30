@@ -274,7 +274,7 @@ El modelo entidad relación o ER nos ayudará a entender la estructura de la bas
 
 ## Diagrama de Clases (antiguo)
 
-Gracias al diagrama de clases podemos entender mejor las clases y sus interacciones
+Gracias al diagrama de clases podemos entender mejor las clases y sus interacciones.
 
 <div align="center">
 <img alt="Modelo de Clases (antiguo)" src= "https://github.com/BipperTT/club_boxeo/assets/153605976/95e9272d-8df8-4ce3-9579-f57ef95337e4"
