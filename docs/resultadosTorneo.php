@@ -19,6 +19,7 @@ session_start();
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Combates Realizados</th>
@@ -44,6 +45,7 @@ window.onload = function() {
             data.forEach(result => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
+                    <td>${result.id}</td>
                     <td>${result.Nombre}</td>
                     <td>${result.Apellidos}</td>
                     <td>${result.Combates_Realizados}</td>

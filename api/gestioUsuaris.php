@@ -35,15 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT' && isset($_GET['ID'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE' && isset($_GET['ID'])) {
     $id = $_GET['ID'];
     
-    // Delete record from Usuario table
     $result_usuario = mysqli_query($conn, "DELETE FROM Usuario WHERE ID_usuario=$id");
-    
-    // Check if record was successfully deleted from Usuario table
     if ($result_usuario) {
-        // Delete record from Persona table
         $result_persona = mysqli_query($conn, "DELETE FROM Persona WHERE ID=$id");
         
-        // Check if record was successfully deleted from Persona table
         if ($result_persona) {
             $response = array('status' => 'success');
         } else {
