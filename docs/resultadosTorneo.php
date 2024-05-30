@@ -24,7 +24,7 @@ session_start();
                 <th>Apellidos</th>
                 <th>Combates Realizados</th>
                 <th>Combates Ganados</th>
-                <th>Fecha Combate</th>
+                <th>Ultimo Combate</th>
                 <th>Porcentaje Ganados</th>
                 <th>Modificar</th>
             </tr>
