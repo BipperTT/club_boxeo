@@ -41,9 +41,6 @@
             <option value="entrenador">Entrenador</option>
             <option value="usuario">Usuario</option>
         </select><br>
-
-        <label for="ha_pagado">Ha pagado:</label>
-        <input type="checkbox" id="ha_pagado" name="ha_pagado"><br>
         
         <button type="submit">Guardar</button>
     </form>
@@ -65,7 +62,6 @@
                 document.getElementById('email').value = usuario.email;
                 document.getElementById('contrasena').value = usuario.contraseña;
                 document.getElementById('tipo').value = usuario.tipo;
-                document.getElementById('ha_pagado').checked = usuario.ha_pagado === '1';
             }
         })
         .catch(error => console.error('Error al cargar los datos del usuario:', error));
@@ -81,7 +77,6 @@
             const email = document.getElementById('email').value;
             const contrasena = document.getElementById('contrasena').value;
             const tipo = document.getElementById('tipo').value;
-            const ha_pagado = document.getElementById('ha_pagado').checked ? '1' : '0';
             const data = {
                 nombre: nombre,
                 apellido1: apellido1,
@@ -89,7 +84,6 @@
                 email: email,
                 contraseña: contrasena,
                 tipo: tipo,
-                ha_pagado: ha_pagado
             };
             fetch(`../api/gestioUsuaris.php?ID=${userId}`, {
                 method: 'PUT',
