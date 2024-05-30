@@ -4,7 +4,10 @@
 
 <div align="center">    
     <img src= https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white>
-    <img src= https://img.shields.io/badge/SCALEWAY-%234f0599.svg?style=for-the-badge&logo=scaleway&logoColor=white>
+    <img src= https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white>
+    <img src= https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white>
+    <img src= https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white>
+    <img src= https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E>
 </div>
 
 <div align="center">
@@ -19,15 +22,16 @@ Bienvenido al repositorio de la página web del gimnasio de boxeo Sogache. Este 
 
 ## Índice
 
-* [Descripción del proyecto](#descripcion-del-proyecto)
-* [Tecnologías Utilizadas](#tecnologias-utilizadas)
+* [Descripción del proyecto](#descripción-del-proyecto)
+* [Tecnologías Utilizadas](#tecnologías-utilizadas)
 * [Estructura del proyecto](#estructura-del-proyecto)
-* [Índice de Archivos](#indice-de-archivos)
+* [Índice de Archivos](#índice-de-archivos)
 * [UML de Casos de Uso](#uml-de-casos-de-uso)
 * [Agradecimientos](#agradecimientos)
 * [Diagrama de Arquitectura](#diagrama-de-arquitectura)
-* [Modelo Entidad Relación (antiguo)](#modelo-entidad-relacion-(antiguo))
-* [Diagrama de Clases (antiguo)](#diagrama-de-clases-(antiguo))
+* [Modelo Entidad Relación (antiguo)](#modelo-entidad-relación-antiguo)
+* [Diagrama de Clases (antiguo)](#diagrama-de-clases-antiguo)
+* [Agradecimientos](#agradecimientos)
 
 ## Descripción del Proyecto
 
