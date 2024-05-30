@@ -29,15 +29,15 @@
             .then(response => response.json())
             .then(data => {
                 if (data.status == 'success') {
-                    alert('Usuario eliminado exitosamente');
+                    alert('Comentario eliminado exitosamente');
                     self.location.href='visualizarMensaje.php';
                 } else {
-                    alert('Se ha producido un error al eliminar el usuario');
+                    alert('Se ha producido un error al eliminar el comentario');
                 }
             })
             .catch(error => {
-                alert('Se ha producido un error al eliminar el usuario');
-                console.error('Error al eliminar el usuario:', error);
+                alert('Se ha producido un error al eliminar el comentario');
+                console.error('Error al eliminar el comentario:', error);
             });
     </script>
     <script src="js/scripts.js"></script>
