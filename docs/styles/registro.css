@@ -14,6 +14,7 @@ body {
 }
 
 .register-box {
+    margin-top: 208px;
     background-color: #ffffff; /* Pure white background for cleanliness */
     padding: 40px;
     border: 1px solid #ddd; /* Lighter border color */
