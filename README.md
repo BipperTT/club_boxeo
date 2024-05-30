@@ -27,7 +27,6 @@ Bienvenido al repositorio de la página web del gimnasio de boxeo Sogache. Este 
 * [Estructura del proyecto](#estructura-del-proyecto)
 * [Índice de Archivos](#índice-de-archivos)
 * [UML de Casos de Uso](#uml-de-casos-de-uso)
-* [Agradecimientos](#agradecimientos)
 * [Diagrama de Arquitectura](#diagrama-de-arquitectura)
 * [Modelo Entidad Relación (antiguo)](#modelo-entidad-relación-antiguo)
 * [Diagrama de Clases (antiguo)](#diagrama-de-clases-antiguo)
