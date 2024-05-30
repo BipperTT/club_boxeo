@@ -1,16 +1,17 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();
-    $id = $_POST['ID_entrenador'];
+    $idEntrenador = $_POST['ID_entrenador'];
     $diaSemana = $_POST['dia_semana']; 
     $horaInicio = $_POST['hora_inicio'];
     $horaFinal = $_POST['hora_final'];
+    $id_usuario = $_POST['id_usuario'];
     
     if (isset($_SESSION['id_usuario'])) {
         $id_usuario = $_SESSION['id_usuario'];
         
         $data = array(
-            'ID_entrenador' => $id,
+            'ID_entrenador' => $idEntrenador,
             'dia_semana' => $diaSemana, 
             'hora_inicio' => $horaInicio,
             'hora_final' => $horaFinal,

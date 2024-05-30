@@ -6,11 +6,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $idEntrenador = $data['ID_entrenador'];
     $diaSemana = $data['dia_semana'];
     $horaInicio = $data['hora_inicio'];
-    $horaFinal = $data['hora_inicio'];
+    $horaFinal = $data['hora_final'];
     $id_usuario = $data['id_usuario'];
 
-
-    $query = "INSERT INTO Grupal (ID_entrenador, dia_semana, hora_inicio, hora_final, ID_usuario) VALUES ('$idEntrenador', $diaSemana, '$horaInicio', '$horaFinal','$id_usuario')";
+    $query = "INSERT INTO Grupal (ID_entrenador, dia_semana, hora_inicio, hora_final, ID_usuario) VALUES ('$idEntrenador', '$diaSemana', '$horaInicio', '$horaFinal', '$id_usuario')";
     
     if (mysqli_query($conn, $query)) {
         $response = array('status' => 'success');
