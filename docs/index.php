@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="icon" href="img/ico_nbg.png" type="image">
 </head>
+
 <body>
     <header>
         <div class="logo">
